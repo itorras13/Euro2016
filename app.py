@@ -8,10 +8,6 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/point_system')
-def point():
-    return render_template('point_system.html')
-
 @app.errorhandler(404)
 def page_not_found(error):
     return redirect(url_for('index'))
