@@ -40,11 +40,13 @@
                 <li class="sidebar-brand">
                     <a href="/#top">
                         Home
-                        <!-- <img id="icon" src="static/img/euro_icon.png"> -->
                     </a>
                 </li>
                 <li>
                     <a href="/#rules">Rules</a>
+                </li>
+                <li>
+                    <a href="/#points">Point System</a>
                 </li>
                 <li>
                     <a href="/#payment">How To Pay</a>
@@ -70,88 +72,23 @@
                     <div class="col-lg-12">
                         <h1>Welcome To Euro 2016 Quiniela</h1>
                         <p>The quiniela was a great success for the 2014 World Cup so we decided to bring it back for the Euro Cup. Hope you all enjoy!</p>
-                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                            <!-- Indicators -->
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-                                <li data-target="#carousel-example-generic" data-slide-to="4"></li>
-                            </ol>
-                            <!-- Wrapper for slides -->
-                            <div class="carousel-inner" role="listbox">
-                                <div class="item active">
-                                    <img src="static/img/france.jpg" alt="france">
-                                    <div class="carousel-caption">
-                                    <h3>Odds 3/1</h3>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <img src="static/img/germany.jpg" alt="germany">
-                                    <div class="carousel-caption">
-                                    <h3>Odds 7/2</h3>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <img src="static/img/spain.jpg" alt="spain">
-                                    <div class="carousel-caption">
-                                    <h3>Odds 11/2</h3>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <img src="static/img/england.jpg" alt="england">
-                                    <div class="carousel-caption">
-                                    <h3>Odds 8/1</h3>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <img src="static/img/belgium.jpg" alt="belgium">
-                                    <div class="carousel-caption">
-                                    <h3>Odds 12/1</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Controls -->
-                            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                        </div>
+                        <h5>Here are the Top 5 teams predicted to win</h5>
+                        {% include 'carousel.html' %}
                     </div>
                 </div>
                 <div class="row" id="rules">
                     <div class="col-lg-12">
-                        <h1>Rules</h1>
-                        <ol>
-                            <li>Entry price is $20 per submission</li>
-                            <li>You can submit at most 3 times</li>
-                            <li>Pay before the first game or your submission will be deleted</li>
-                            <li>If you cannot pay in time contact Ignacio Jr or Jose Luis ASAP</li>
-                        </ol>
+                        {% include 'rules.html' %}
+                    </div>
+                </div>
+                <div class="row" id="points">
+                    <div class="col-lg-12">
+                        {% include 'point_system.html' %}
                     </div>
                 </div>
                 <div class="row" id="payment">
                     <div class="col-lg-12">
-                        <h1>How To Pay</h1>
-                        <ol>
-                            <li>Venmo Ignacio Jr or Jose Luis
-                                <ul>
-                                    <li>Ignacio Jr: @Ignacio-Torras</li>
-                                    <li>Jose Luis: @Jose-Torras</li>
-                                </ul>
-                            </li>
-                            <li>Pay Ignacio Jr through PayPal
-                                <ul>
-                                    <li><a href="https://www.paypal.me/ITorras" target="_blank">Paypal Link</a></li>
-                                </ul>
-                            </li>
-                            <li>Pay anyone in the Torras family in cash</li>
-                        </ol>
+                        {% include 'payment.html' %}
                     </div>
                 </div>
                 <div class="row" id="standings">
@@ -163,25 +100,7 @@
                 </div>
                 <div class="row" id="contact">
                     <div class="col-lg-12">
-                        <h1>Contact</h1>
-                        <a href="https://www.facebook.com/nacho.torras.3" target="_blank" class="btn btn-social-icon btn-lg btn-facebook">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                        <a href="https://plus.google.com/u/0/+IgnacioTorras" target="_blank" class="btn btn-social-icon btn-lg btn-google">
-                            <i class="fa fa-google"></i>
-                        </a>
-                        <a href="https://instagram.com/nachdacratch" target="_blank" class="btn btn-social-icon btn-lg btn-instagram">
-                            <i class="fa fa-instagram"></i>
-                        </a>
-                        <a href="https://twitter.com/nachdacratch" target="_blank" class="btn btn-social-icon btn-lg btn-twitter">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/ignaciotorras" target="_blank" class="btn btn-social-icon btn-lg btn-linkedin">
-                            <i class="fa fa-linkedin"></i>
-                        </a>
-                        <a href="https://github.com/itorras13" target="_blank" class="btn btn-social-icon btn-lg btn-github">
-                            <i class="fa fa-github"></i>
-                        </a>
+                        {% include 'contact.html' %}
                     </div>
                 </div>
             </div>

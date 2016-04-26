@@ -5,8 +5,12 @@ from flask import redirect, url_for
 app = Flask(__name__)
 
 @app.route('/')
-def hello_world():
+def index():
     return render_template('index.html')
+
+@app.route('/point_system')
+def point():
+    return render_template('point_system.html')
 
 @app.errorhandler(404)
 def page_not_found(error):
