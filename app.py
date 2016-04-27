@@ -10,7 +10,7 @@ mysql = MySQL()
 urlparse.uses_netloc.append('mysql')
 url = urlparse.urlparse(os.environ['DATABASE_URL'])
 app = Flask(__name__)
-# app.config['DEBUG'] = True
+app.config['DEBUG'] = True
 app.config['MYSQL_DATABASE_USER'] = url.username
 app.config['MYSQL_DATABASE_PASSWORD'] = url.password
 app.config['MYSQL_DATABASE_DB'] = url.path[1:]
