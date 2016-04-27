@@ -4,6 +4,7 @@ from flask import Flask, request, render_template, redirect, url_for, flash
 import os
 import psycopg2
 from flask.ext.sqlalchemy import SQLAlchemy
+from datetime import datetime
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
@@ -16,12 +17,18 @@ class Submission(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(80))
     last_name = db.Column(db.String(80))
+    email = db.Column(db.String(120))
+    submission_number = db.Column(db.Integer)
     winner = db.Column(db.String(80))
+    publish_date = db.Column(db.DateTime)
 
-    def __init__(self, first_name, last_name, winner):
+    def __init__(self, first_name, last_name, email, submission_number, winner):
         self.first_name = first_name
         self.last_name = last_name
+        self.email = email
         self.winner = winner
+        self.submission_number = submission_number
+        self.publish_date = datetime.utcnow()
 
     def __repr__(self):
         return '<Name %r>' % self.first_name
