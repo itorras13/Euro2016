@@ -23,7 +23,6 @@ def index():
 
 @app.route('/submit')
 def submit():
-	conn = mysql.connect.cursor()
 	return render_template('submit.html')
 
 @app.errorhandler(404)
