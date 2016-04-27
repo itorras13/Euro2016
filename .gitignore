@@ -1,4 +1,5 @@
 venv
+easy.py
 *.pyc
 .env
 .DS_Store
