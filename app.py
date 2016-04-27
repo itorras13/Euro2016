@@ -11,6 +11,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 db = SQLAlchemy(app)
 
+
+
 class Submission(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(80))
@@ -29,7 +31,7 @@ class Submission(db.Model):
 def index():
     return render_template('index.html')
 
-@app.route('/submit')
+@app.route('/submit', methods=['POST'])
 def submit():
 	return render_template('submit.html')
 
