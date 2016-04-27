@@ -54,6 +54,7 @@ class Submission(db.Model):
     #Other
     top_scorer = db.Column(db.String(40))
     publish_date = db.Column(db.DateTime)
+    points = db.Column(db.Integer)
 
     def __init__(self, first_name, last_name, email, submission_number,
 		a1h, a1a, a2h, a2a, a3h, a3a, a4h, a4a, a5h, a5a, a6h, a6a, b1h, b1a, b2h, b2a, b3h, b3a,
@@ -95,13 +96,26 @@ class Submission(db.Model):
         #Other
         self.top_scorer = top_scorer
         self.publish_date = datetime.utcnow()
+        self.points = 0
 
     def __repr__(self):
         return '<Name %r>' % self.first_name
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+	submissions = Submission.query.order_by(Submission.points.desc(), 
+		Submission.id.asc()).all()
+	updated_submissions = []
+	for sub in submissions:
+		new_sub = {}
+		new_sub['email'] = sub.email
+		new_sub['first_name'] = sub.first_name
+		new_sub['last_name'] = sub.last_name
+		new_sub['sub_num'] = sub.submission_number
+		new_sub['champion'] = sub.champion
+		new_sub['points'] = sub.points
+		updated_submissions.append(new_sub)
+	return render_template('index.html', submissions=updated_submissions)
 
 @app.route('/submit', methods=['GET', 'POST'])
 def submit():
