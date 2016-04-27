@@ -1,12 +1,11 @@
-from flask import Flask
-from flask import render_template
-from flask import redirect, url_for
+# from __future__ import print_function # In python 2.7
+# import sys
+from flask import Flask, request, render_template, redirect, url_for, flash
 import os
 import psycopg2
 from flask.ext.sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.debug = True
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 db = SQLAlchemy(app)
@@ -31,8 +30,13 @@ class Submission(db.Model):
 def index():
     return render_template('index.html')
 
-@app.route('/submit', methods=['POST'])
+@app.route('/submit', methods=['GET', 'POST'])
 def submit():
+	# print('Hey!', file=sys.stderr)
+	if request.method == 'POST':
+		# print(request.form['1a'], file=sys.stderr)
+		return render_template("success.html")
+	# print('Hello world!', file=sys.stderr)
 	return render_template('submit.html')
 
 @app.errorhandler(404)
@@ -40,4 +44,5 @@ def page_not_found(error):
     return redirect(url_for('index'))
 
 if __name__ == "__main__":
+	# app.debug = True
 	app.run()

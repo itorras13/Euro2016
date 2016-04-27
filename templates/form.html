@@ -1,12 +1,12 @@
-<form class="form-horizontal" role="form">
+<form class="form-horizontal" role="form" action='/submit' method='post'>
   <div class="form-group">
 	<label class="control-label col-sm-2" for="email">Email:</label>
 	<div class="col-sm-6">
-	  <input type="email" class="form-control" id="email" placeholder="Enter email">
+	  <input type="email" class="form-control" name="email" placeholder="Enter email" required></input>
 	</div>
 	<label class="control-label col-sm-2" for="submission_count">Submission #:</label>
 	<div class="col-sm-2">
-		<select class="form-control" type="number" id="submission_count">
+		<select class="form-control" type="number" name="submission_count">
 			<option value="1">1st Submission</option><option value="2">2nd Submission</option><option value="3">3rd Submission</option>
 		</select>
 	</div>
@@ -14,26 +14,684 @@
   <div class="form-group">
   	<label class="control-label col-sm-2" for="first_name">First Name:</label>
   	<div class="col-sm-10">
-  		<input type"text" class="form-control" id="first_name" placeholder="Enter Your First Name"></input>
+  		<input type"text" class="form-control" name="first_name" placeholder="Enter Your First Name" required></input>
   	</div>
   </div>
   <div class="form-group">
   	<label class="control-label col-sm-2" for="last_name">Last Name:</label>
   	<div class="col-sm-10">
-  		<input type"text" class="form-control" id="last_name" placeholder="Enter Your Last Name"></input>
+  		<input type"text" class="form-control" name="last_name" placeholder="Enter Your Last Name" required></input>
+  	</div>
+  </div>
+
+
+  <!-- GROUP A -->
+  <div class="form-group">
+  <label class="control-label col-sm-2">Group A</label>
+  </div>
+  <div class="form-group">
+  	<label class="control-label col-sm-2">Games A1 & A2</label>
+  	<label class="control-label col-sm-1" for="a1">France</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="a1h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="a1a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="a1">Romania</label>
+  	<div class="col-sm-1"></div>
+  	<label class="control-label col-sm-1" for="a2">Albania</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="a2h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="a2a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="a2">Switzerland</label>
+  </div>
+  <div class="form-group">
+  	<label class="control-label col-sm-2">Games A3 & A4</label>
+  	<label class="control-label col-sm-1" for="a3">Romania</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="a3h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="a3a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="a3">Switzerland</label>
+  	<div class="col-sm-1"></div>
+  	<label class="control-label col-sm-1" for="a4">France</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="a4h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="a4a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="a4">Albania</label>
+  </div>
+  <div class="form-group">
+  	<label class="control-label col-sm-2">Games A5 & A6</label>
+  	<label class="control-label col-sm-1" for="a5">Switzerland</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="a5h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="a5a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="a5">France</label>
+  	<div class="col-sm-1"></div>
+  	<label class="control-label col-sm-1" for="a6">Romania</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="a6h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="a6a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="a6">Albania</label>
+  </div>
+
+
+  
+  <!-- GROUP B -->
+  <div class="form-group">
+  <label class="control-label col-sm-2">Group B</label>
+  </div>
+  <div class="form-group">
+  	<label class="control-label col-sm-2">Games B1 & B2</label>
+  	<label class="control-label col-sm-1" for="b1">Wales</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="b1h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="b1a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="b1">Slovakia</label>
+  	<div class="col-sm-1"></div>
+  	<label class="control-label col-sm-1" for="b2">England</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="b2h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="b2a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="b2">Russia</label>
+  </div>
+  <div class="form-group">
+  	<label class="control-label col-sm-2">Games B3 & B4</label>
+  	<label class="control-label col-sm-1" for="b3">Russia</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="b3h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="b3a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="b3">Slovakia</label>
+  	<div class="col-sm-1"></div>
+  	<label class="control-label col-sm-1" for="b4">England</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="b4h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="b4a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="b4">Wales</label>
+  </div>
+  <div class="form-group">
+  	<label class="control-label col-sm-2">Games B5 & B6</label>
+  	<label class="control-label col-sm-1" for="b5">Slovakia</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="b5h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="b5a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="b5">England</label>
+  	<div class="col-sm-1"></div>
+  	<label class="control-label col-sm-1" for="b6">Russia</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="b6h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="b6a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="b6">Wales</label>
+  </div>
+
+
+  <!-- GROUP C -->
+  <div class="form-group">
+  <label class="control-label col-sm-2">Group C</label>
+  </div>
+  <div class="form-group">
+  	<label class="control-label col-sm-2">Games C1 & C2</label>
+  	<label class="control-label col-sm-1" for="c1">Poland</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="c1h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="c1a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="c1">North Ireland</label>
+  	<div class="col-sm-1"></div>
+  	<label class="control-label col-sm-1" for="c2">Germany</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="c2h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="c2a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="c2">Ukraine</label>
+  </div>
+  <div class="form-group">
+  	<label class="control-label col-sm-2">Games C3 & C4</label>
+  	<label class="control-label col-sm-1" for="c3">Ukraine</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="c3h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="c3a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="c3">North Ireland</label>
+  	<div class="col-sm-1"></div>
+  	<label class="control-label col-sm-1" for="c4">Germany</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="c4h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="c4a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="c4">Poland</label>
+  </div>
+  <div class="form-group">
+  	<label class="control-label col-sm-2">Games C5 & C6</label>
+  	<label class="control-label col-sm-1" for="c5">North Ireland</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="c5h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="c5a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="c5">Germany</label>
+  	<div class="col-sm-1"></div>
+  	<label class="control-label col-sm-1" for="c6">Ukraine</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="c6h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="c6a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="c6">Poland</label>
+  </div>
+
+
+  <!-- GROUP D -->
+  <div class="form-group">
+  <label class="control-label col-sm-2">Group D</label>
+  </div>
+  <div class="form-group">
+  	<label class="control-label col-sm-2">Games D1 & D2</label>
+  	<label class="control-label col-sm-1" for="d1">Turkey</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="d1h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="d1a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="c1">Croatia</label>
+  	<div class="col-sm-1"></div>
+  	<label class="control-label col-sm-1" for="c2">Spain</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="d2h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="d2a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="d2">Czech Republic</label>
+  </div>
+  <div class="form-group">
+  	<label class="control-label col-sm-2">Games D3 & D4</label>
+  	<label class="control-label col-sm-1" for="d3">Czech Republic</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="d3h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="d3a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="c3">Croatia</label>
+  	<div class="col-sm-1"></div>
+  	<label class="control-label col-sm-1" for="c4">Spain</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="d4h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="d4a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="d4">Turkey</label>
+  </div>
+  <div class="form-group">
+  	<label class="control-label col-sm-2">Games D5 & D6</label>
+  	<label class="control-label col-sm-1" for="d5">Croatia</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="d5h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="d5a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="c5">Spain</label>
+  	<div class="col-sm-1"></div>
+  	<label class="control-label col-sm-1" for="c6">Czech Republic</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="d6h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="d6a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="d6">Turkey</label>
+  </div>
+
+
+
+
+  <!-- GROUP E -->
+  <div class="form-group">
+  <label class="control-label col-sm-2">Group E</label>
+  </div>
+  <div class="form-group">
+  	<label class="control-label col-sm-2">Games E1 & E2</label>
+  	<label class="control-label col-sm-1" for="e1">R. of Ireland</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="e1h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="e1a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="e1">Sweden</label>
+  	<div class="col-sm-1"></div>
+  	<label class="control-label col-sm-1" for="e2">Belgium</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="e2h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="e2a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="e2">Italy</label>
+  </div>
+  <div class="form-group">
+  	<label class="control-label col-sm-2">Games E3 & E4</label>
+  	<label class="control-label col-sm-1" for="e3">Italy</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="e3h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="e3a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="e3">Sweden</label>
+  	<div class="col-sm-1"></div>
+  	<label class="control-label col-sm-1" for="e4">Belgium</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="e4h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="e4a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="e4">R. of Ireland</label>
+  </div>
+  <div class="form-group">
+  	<label class="control-label col-sm-2">Games E5 & E6</label>
+  	<label class="control-label col-sm-1" for="e5">Sweden</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="e5h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="e5a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="e5">Belgium</label>
+  	<div class="col-sm-1"></div>
+  	<label class="control-label col-sm-1" for="e6">Italy</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="e6h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="e6a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="e6">R. of Ireland</label>
+  </div>
+
+
+
+  <!-- GROUP F -->
+  <div class="form-group">
+  <label class="control-label col-sm-2">Group F</label>
+  </div>
+  <div class="form-group">
+  	<label class="control-label col-sm-2">Games F1 & F2</label>
+  	<label class="control-label col-sm-1" for="f1">Austria</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="f1h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="f1a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="f1">Hungary</label>
+  	<div class="col-sm-1"></div>
+  	<label class="control-label col-sm-1" for="f2">Portugal</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="f2h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="f2a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="f2">Iceland</label>
+  </div>
+  <div class="form-group">
+  	<label class="control-label col-sm-2">Games F3 & F4</label>
+  	<label class="control-label col-sm-1" for="f3">Iceland</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="f3h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="f3a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="f3">Hungary</label>
+  	<div class="col-sm-1"></div>
+  	<label class="control-label col-sm-1" for="f4">Portugal</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="f4h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="f4a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="f4">Austria</label>
+  </div>
+  <div class="form-group">
+  	<label class="control-label col-sm-2">Games F5 & F6</label>
+  	<label class="control-label col-sm-1" for="f5">Hungary</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="f5h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="f5a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="f5">Portugal</label>
+  	<div class="col-sm-1"></div>
+  	<label class="control-label col-sm-1" for="f6">Iceland</label>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="f6h" required></input>
+  	</div>
+  	<div class="col-sm-1">
+  		<input type="number" class="form-control" name="f6a" required></input>
+  	</div>
+  	<label class="control-label col-sm-1" for="f6">Austria</label>
+  </div>
+
+  <div class="form-group">
+  <label class="control-label col-sm-2">Group Standings</label>
+  </div>
+
+  <div class="form-group">
+  	<label class="control-label col-sm-2">Group A</label>
+  	<label class="control-label col-sm-2" for="1a">First Place</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" name="1a">
+			<option value="albania">Albania</option><option value="france">France</option><option value="romania">Romania</option><option value="switzerland">Switzerland</option>
+		</select>
+  	</div>
+  	<label class="control-label col-sm-2" for="2a">Second Place</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" name="2a">
+			<option value="albania">Albania</option><option value="france">France</option><option value="romania">Romania</option><option value="switzerland">Switzerland</option>
+		</select>
+  	</div>
+  </div>
+
+  <div class="form-group">
+  	<label class="control-label col-sm-2">Group B</label>
+  	<label class="control-label col-sm-2" for="1b">First Place</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" name="1b">
+			<option value="england">England</option><option value="russia">Russia</option><option value="slovakia">Slovakia</option><option value="wales">Wales</option>
+		</select>
+  	</div>
+  	<label class="control-label col-sm-2" for="2b">Second Place</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" name="2b">
+			<option value="england">England</option><option value="russia">Russia</option><option value="slovakia">Slovakia</option><option value="wales">Wales</option>
+		</select>
+  	</div>
+  </div>
+
+  <div class="form-group">
+  	<label class="control-label col-sm-2">Group C</label>
+  	<label class="control-label col-sm-2" for="1c">First Place</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" name="1c">
+			<option value="germany">Germany</option><option value="north_ireland">North Ireland</option><option value="poland">Poland</option><option value="ukraine">Ukraine</option>
+		</select>
+  	</div>
+  	<label class="control-label col-sm-2" for="2c">Second Place</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" name="2c">
+			<option value="germany">Germany</option><option value="north_ireland">North Ireland</option><option value="poland">Poland</option><option value="ukraine">Ukraine</option>
+		</select>
+  	</div>
+  </div>
+
+  <div class="form-group">
+  	<label class="control-label col-sm-2">Group D</label>
+  	<label class="control-label col-sm-2" for="1d">First Place</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" name="1d">
+			<option value="croatia">Croatia</option><option value="czech_republic">Czech Republic</option><option value="spain">Spain</option><option value="turkey">Turkey</option>
+		</select>
+  	</div>
+  	<label class="control-label col-sm-2" for="2d">Second Place</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" name="2d">
+			<option value="croatia">Croatia</option><option value="czech_republic">Czech Republic</option><option value="spain">Spain</option><option value="turkey">Turkey</option>
+		</select>
+  	</div>
+  </div>
+
+  <div class="form-group">
+  	<label class="control-label col-sm-2">Group E</label>
+  	<label class="control-label col-sm-2" for="1e">First Place</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" name="1e">
+			<option value="belgium">Belgium</option><option value="italy">Italy</option><option value="republic_of_ireland">Republic of Ireland</option><option value="sweden">Sweden</option>
+		</select>
+  	</div>
+  	<label class="control-label col-sm-2" for="2e">Second Place</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" name="2e">
+			<option value="belgium">Belgium</option><option value="italy">Italy</option><option value="republic_of_ireland">Republic of Ireland</option><option value="sweden">Sweden</option>
+		</select>
+  	</div>
+  </div>
+
+  <div class="form-group">
+  	<label class="control-label col-sm-2">Group F</label>
+  	<label class="control-label col-sm-2" for="1f">First Place</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" name="1f">
+			<option value="austria">Austria</option><option value="hungary">Hungary</option><option value="iceland">Iceland</option><option value="portugal">Portugal</option>
+		</select>
+  	</div>
+  	<label class="control-label col-sm-2" for="2f">Second Place</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" name="2f">
+			<option value="austria">Austria</option><option value="hungary">Hungary</option><option value="iceland">Iceland</option><option value="portugal">Portugal</option>
+		</select>
+  	</div>
+  </div>
+
+  <div class="form-group">
+  <label style="text-align:left;" class="control-label col-sm-6">The Four Top 3rd Place Teams (which also advance)</label>
+  </div>
+
+  <div class="form-group">
+  <label class="control-label col-sm-1" for="31">First Team</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" name="31">
+			{% include 'all_team_options.html' %}
+		</select>
+  	</div>
+  <label class="control-label col-sm-1" for="32">Second Team</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" name="32">
+			{% include 'all_team_options.html' %}
+		</select>
+  	</div>
+  <label class="control-label col-sm-1" for="33">Third Team</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" name="33">
+			{% include 'all_team_options.html' %}
+		</select>
+  	</div>
+  <label class="control-label col-sm-1" for="34">Fourth Team</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" name="34">
+			{% include 'all_team_options.html' %}
+		</select>
+  	</div>
+  </div>
+
+  <div class="form-group">
+  <label class="control-label col-sm-2">Quarter Finalists</label>
+  </div>
+
+  <div class="form-group">
+  <label class="control-label col-sm-1" for="q1">Team 1</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" name="q1">
+			{% include 'all_team_options.html' %}
+		</select>
+  	</div>
+  <label class="control-label col-sm-1" for="q2">Team 2</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" name="q2">
+			{% include 'all_team_options.html' %}
+		</select>
+  	</div>
+  <label class="control-label col-sm-1" for="q3">Team 3</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" name="q3">
+			{% include 'all_team_options.html' %}
+		</select>
+  	</div>
+  <label class="control-label col-sm-1" for="q4">Team 4</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" name="q4">
+			{% include 'all_team_options.html' %}
+		</select>
   	</div>
   </div>
   <div class="form-group">
-  	<label class="control-label col-sm-2" for="a1">Game A1</label>
-  	<label class="control-label col-sm-2" for="a1">France</label>
-  	<div class="col-sm-1">
-  		<input type"number" class="form-control" id="a1h"></input>
+  <label class="control-label col-sm-1" for="q5">Team 5</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" name="q5">
+			{% include 'all_team_options.html' %}
+		</select>
   	</div>
-  	<div class="col-sm-1">
-  		<input type"number" class="form-control" id="a1h"></input>
+  <label class="control-label col-sm-1" for="q6">Team 6</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" name="q6">
+			{% include 'all_team_options.html' %}
+		</select>
   	</div>
-  	<label class="control-label col-sm-1" for="a1">Romania</label>
+  <label class="control-label col-sm-1" for="q7">Team 7</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" name="q7">
+			{% include 'all_team_options.html' %}
+		</select>
+  	</div>
+  <label class="control-label col-sm-1" for="q8">Team 8</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" name="q8">
+			{% include 'all_team_options.html' %}
+		</select>
+  	</div>
   </div>
+
+  <div class="form-group">
+  <label class="control-label col-sm-2">Semi Finalists</label>
+  </div>
+  <div class="form-group">
+  <label class="control-label col-sm-1" for="s1">Team 1</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" name="s1">
+			{% include 'all_team_options.html' %}
+		</select>
+  	</div>
+  <label class="control-label col-sm-1" for="s2">Team 2</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" name="s2">
+			{% include 'all_team_options.html' %}
+		</select>
+  	</div>
+  <label class="control-label col-sm-1" for="s3">Team 3</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" name="s3">
+			{% include 'all_team_options.html' %}
+		</select>
+  	</div>
+  <label class="control-label col-sm-1" for="s4">Team 4</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" name="s4">
+			{% include 'all_team_options.html' %}
+		</select>
+  	</div>
+  </div>
+
+  <div class="form-group">
+  <label class="control-label col-sm-2">Finalists</label>
+  </div>
+  <div class="form-group">
+  <label class="control-label col-sm-1" for="f1">Team 1</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" name="f1">
+			{% include 'all_team_options.html' %}
+		</select>
+  	</div>
+  <label class="control-label col-sm-1" for="f2">Team 2</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" name="f2">
+			{% include 'all_team_options.html' %}
+		</select>
+  	</div>
+  </div>
+
+  <div class="form-group">
+  <label class="control-label col-sm-2">Winners</label>
+  </div>
+  <div class="form-group">
+  <label class="control-label col-sm-1" for="champion">Champion</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" name="champion">
+			{% include 'all_team_options.html' %}
+		</select>
+  	</div>
+  <label class="control-label col-sm-1" for="third">Third Place</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" name="third">
+			{% include 'all_team_options.html' %}
+		</select>
+  	</div>
+  </div>
+
+  <div class="form-group">
+  <label class="control-label col-sm-11">Top Goal Scorer (the predicted top 30 are listed in order, if you put other and none of the top 30 win then you get the points)</label>
+  </div>
+  <div class="form-group">
+  <label class="control-label col-sm-1" for="top_scorer">Gold Boot</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" name="top_scorer">
+			{% include 'all_scorer_options.html' %}
+		</select>
+  	</div>
+  </div>
+
+
+
   <div class="form-group"> 
     <div class="col-sm-offset-2 col-sm-10">
       <button type="submit" class="btn btn-default">Submit</button>
