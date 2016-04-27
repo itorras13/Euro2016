@@ -1,0 +1,14 @@
+CREATE TABLE submissions (
+  id int NOT NULL ,
+  first_name VARCHAR(30) NOT NULL,
+  last_name VARCHAR(30) NOT NULL,
+  champion VARCHAR(30) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+INSERT INTO submissions 
+    (first_name,last_name,champion) 
+VALUES 
+    ("Ignacio", "Torras", "Spain"),
+    ("Jose", "Torras", "France"),
+    ("Ana", "Torras", "England");
