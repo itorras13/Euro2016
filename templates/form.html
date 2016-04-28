@@ -1,0 +1,174 @@
+<form class="form-horizontal" role="form" action='/submit' method='post'>
+  <div class="form-group">
+	<label class="control-label col-sm-2" for="email">Email:</label>
+	<div class="col-sm-6">
+	  <input type="email" class="form-control" name="email" placeholder="Enter email" required></input>
+	</div>
+	<label class="control-label col-sm-2" for="submission_num">Submission #:</label>
+	<div class="col-sm-2">
+		<select class="form-control" type="number" name="submission_num">
+			<option value="1">1st Submission</option><option value="2">2nd Submission</option><option value="3">3rd Submission</option>
+		</select>
+	</div>
+  </div>
+  <div class="form-group">
+  	<label class="control-label col-sm-2" for="first_name">First Name:</label>
+  	<div class="col-sm-10">
+  		<input type"text" class="form-control" name="first_name" placeholder="Enter Your First Name" required></input>
+  	</div>
+  </div>
+  <div class="form-group">
+  	<label class="control-label col-sm-2" for="last_name">Last Name:</label>
+  	<div class="col-sm-10">
+  		<input type"text" class="form-control" name="last_name" placeholder="Enter Your Last Name" required></input>
+  	</div>
+  </div>
+
+  {% include '/submit/group_matches.html' %}
+
+  {% include '/submit/group_standings.html' %}
+
+  <div class="form-group">
+  <label class="control-label">Quarter Finalists (Hover over Team # to see what the match to get to that quarterfinalist spot would be)</label>
+  <label class="control-label">If on phone you can click on Team # to see it</label>
+  </div>
+
+  <div class="form-group">
+  <label class="control-label col-sm-1 q1" for="q1" data-toggle="tooltip" data-placement="top" title="">Team 1</label>
+  	<div class="col-sm-2">
+  		<select class="form-control quarter_select" type="text" id="q1" name="q1" required>
+			{% include '/submit/all_team_options.html' %}
+		</select>
+  	</div>
+  <label class="control-label col-sm-1 q2" for="q2" data-toggle="tooltip" data-placement="top" title="">Team 2</label>
+  	<div class="col-sm-2">
+  		<select class="form-control quarter_select" type="text" id="q2" name="q2" required>
+			{% include '/submit/all_team_options.html' %}
+		</select>
+  	</div>
+  <label class="control-label col-sm-1 q3" for="q3" data-toggle="tooltip" data-placement="top" title="">Team 3</label>
+  	<div class="col-sm-2">
+  		<select class="form-control quarter_select" type="text" id="q3" name="q3" required>
+			{% include '/submit/all_team_options.html' %}
+		</select>
+  	</div>
+  <label class="control-label col-sm-1 q4" for="q4" data-toggle="tooltip" data-placement="top" title="">Team 4</label>
+  	<div class="col-sm-2">
+  		<select class="form-control quarter_select" type="text" id="q4" name="q4" required>
+			{% include '/submit/all_team_options.html' %}
+		</select>
+  	</div>
+  </div>
+  <div class="form-group">
+  <label class="control-label col-sm-1 q5" for="q5" data-toggle="tooltip" data-placement="top" title="">Team 5</label>
+  	<div class="col-sm-2">
+  		<select class="form-control quarter_select" type="text" id="q5" name="q5" required>
+			{% include '/submit/all_team_options.html' %}
+		</select>
+  	</div>
+  <label class="control-label col-sm-1 q6" for="q6" data-toggle="tooltip" data-placement="top" title="">Team 6</label>
+  	<div class="col-sm-2">
+  		<select class="form-control quarter_select" type="text" id="q6" name="q6" required>
+			{% include '/submit/all_team_options.html' %}
+		</select>
+  	</div>
+  <label class="control-label col-sm-1 q7" for="q7" data-toggle="tooltip" data-placement="top" title="">Team 7</label>
+  	<div class="col-sm-2">
+  		<select class="form-control quarter_select" type="text" id="q7" name="q7" required>
+			{% include '/submit/all_team_options.html' %}
+		</select>
+  	</div>
+  <label class="control-label col-sm-1 q8" for="q8" data-toggle="tooltip" data-placement="top" title="">Team 8</label>
+  	<div class="col-sm-2">
+  		<select class="form-control quarter_select" type="text" id="q8" name="q8" required>
+			{% include '/submit/all_team_options.html' %}
+		</select>
+  	</div>
+  </div>
+
+  <div class="form-group">
+  <label class="control-label">Semi Finalists (Again you can hover over Team #)</label>
+  </div>
+  <div class="form-group">
+  <label class="control-label col-sm-1 s1" for="semi1" data-toggle="tooltip" data-placement="top" title="">Team 1</label>
+  	<div class="col-sm-2">
+  		<select class="form-control semi_select" type="text" id="s1" name="semi1" required>
+			{% include '/submit/all_team_options.html' %}
+		</select>
+  	</div>
+  <label class="control-label col-sm-1 s2" for="semi2" data-toggle="tooltip" data-placement="top" title="">Team 2</label>
+  	<div class="col-sm-2">
+  		<select class="form-control semi_select" type="text" id="s2" name="semi2" required>
+			{% include '/submit/all_team_options.html' %}
+		</select>
+  	</div>
+  <label class="control-label col-sm-1 s3" for="semi3" data-toggle="tooltip" data-placement="top" title="">Team 3</label>
+  	<div class="col-sm-2">
+  		<select class="form-control semi_select" type="text" id="s3" name="semi3" required>
+			{% include '/submit/all_team_options.html' %}
+		</select>
+  	</div>
+  <label class="control-label col-sm-1 s4" for="semi4" data-toggle="tooltip" data-placement="top" title="">Team 4</label>
+  	<div class="col-sm-2">
+  		<select class="form-control semi_select" type="text" id="s4" name="semi4" required>
+			{% include '/submit/all_team_options.html' %}
+		</select>
+  	</div>
+  </div>
+
+  <div class="form-group">
+  <label class="control-label col-sm-2">Finalists</label>
+  </div>
+  <div class="form-group">
+  <label class="control-label col-sm-1 fin1" for="fin1" data-toggle="tooltip" data-placement="top" title="">Team 1</label>
+  	<div class="col-sm-2">
+  		<select class="form-control fin_select" type="text" id="fin1" name="fin1" required>
+			{% include '/submit/all_team_options.html' %}
+		</select>
+  	</div>
+  <label class="control-label col-sm-1 fin2" for="fin2" data-toggle="tooltip" data-placement="top" title="">Team 2</label>
+  	<div class="col-sm-2">
+  		<select class="form-control fin_select" type="text" id="fin2" name="fin2" required>
+			{% include '/submit/all_team_options.html' %}
+		</select>
+  	</div>
+  </div>
+
+  <div class="form-group">
+  <label class="control-label col-sm-2">Winners</label>
+  </div>
+  <div class="form-group">
+  <label class="control-label col-sm-1 champion" for="champion" data-toggle="tooltip" data-placement="top" title="">Champion</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" id="champion" name="champion" required>
+			{% include '/submit/all_team_options.html' %}
+		</select>
+  	</div>
+  <label class="control-label col-sm-1" for="third_place" data-toggle="tooltip" data-placement="top" title="Whichever semifinalists that did not make it to final">Third Place</label>
+  	<div class="col-sm-2">
+  		<select class="form-control fin_select" type="text" name="third_place" required>
+			{% include '/submit/all_team_options.html' %}
+		</select>
+  	</div>
+  </div>
+
+  <div class="form-group">
+  <label class="control-label col-sm-11">Top Goal Scorer (the predicted top 30 are listed in order, if you put other and none of the top 30 win then you get the points)</label>
+  </div>
+  <div class="form-group">
+  <label class="control-label col-sm-1" for="top_scorer">Gold Boot</label>
+  	<div class="col-sm-2">
+  		<select class="form-control" type="text" name="top_scorer" required>
+			{% include '/submit/all_scorer_options.html' %}
+		</select>
+  	</div>
+  </div>
+
+
+
+  <div class="form-group"> 
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Submit</button>
+    </div>
+  </div>
+</form>
