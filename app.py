@@ -8,10 +8,6 @@ from datetime import datetime
 import socket
 import sendgrid
 
-#Hosted Graphite
-conn = socket.create_connection(("ab567a26.carbon.hostedgraphite.com", 2003))
-conn.send("857120b7-cf65-4899-b85b-7a443419cc63.test.testing 1.2\n")
-conn.close()
 #SendGrid
 sg = sendgrid.SendGridClient('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')
 
