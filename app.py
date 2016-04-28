@@ -5,6 +5,15 @@ import os
 import psycopg2
 from flask.ext.sqlalchemy import SQLAlchemy
 from datetime import datetime
+import socket
+import sendgrid
+
+#Hosted Graphite
+conn = socket.create_connection(("ab567a26.carbon.hostedgraphite.com", 2003))
+conn.send("857120b7-cf65-4899-b85b-7a443419cc63.test.testing 1.2\n")
+conn.close()
+#SendGrid
+sg = sendgrid.SendGridClient('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')
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
@@ -115,16 +124,30 @@ def index():
 		new_sub['champion'] = sub.champion
 		new_sub['points'] = sub.points
 		updated_submissions.append(new_sub)
-	return render_template('index.html', submissions=updated_submissions)
+	return render_template('index.html', submissions=updated_submissions, modal="none")
 
 @app.route('/submit', methods=['GET', 'POST'])
 def submit():
 	if request.method == 'POST':
 		success = submit_quiniela(request)
 		if success:
-			return render_template("success.html")
+			message = sendgrid.Mail()
+			message.add_to(str(request.form['first_name']) + 
+				str(request.form['last_name']) + ' <' + str(request.form['email']) + '>')
+			submissions = Submission.query.order_by(Submission.id.desc()).all()
+			updated_submissions = []
+			for sub in submissions:
+				new_sub = {}
+				new_sub['email'] = sub.email
+				new_sub['first_name'] = sub.first_name
+				new_sub['last_name'] = sub.last_name
+				new_sub['sub_num'] = sub.submission_number
+				new_sub['champion'] = sub.champion
+				new_sub['points'] = sub.points
+				updated_submissions.append(new_sub)
+			return render_template("index.html", submissions=updated_submissions, modal="success")
 		else:
-			return render_template("failure.html")
+			return render_template("index.html", modal="failure")
 	return render_template('submit.html')
 
 @app.errorhandler(404)

@@ -10,15 +10,6 @@
     <meta name="author" content="">
 
     <title>Euro 2016 Quiniela</title>
-    {% with msgs = get_flashed_messages() %}
-        {% if msgs %}
-            {%- for msg in msgs %}
-                <div class="alert alert-info">
-                    {{ msg }}
-                </div>
-            {% endfor -%}
-        {% endif %}
-    {% endwith %}
 
     <!-- Bootstrap Core CSS -->
     <link href="static/css/bootstrap.min.css" rel="stylesheet">
@@ -133,6 +124,7 @@
                         {% include 'contact.html' %}
                     </div>
                 </div>
+                {% include 'modals.html' %}
             </div>
         </div>
         <!-- /#page-content-wrapper -->
@@ -145,7 +137,19 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="static/js/bootstrap.min.js"></script>
-
+    {% if modal == 'success' %}
+        <script>
+            $(document).ready(function () {
+                $('#successModal').modal('show');
+            });
+        </script>
+    {% elif modal == 'failure' %}
+        <script>
+            $(document).ready(function () {
+                $('#failureModal').modal('show');
+            });
+        </script>
+    {% endif %}
     <!-- Menu Toggle Script -->
     <script>
     $("#menu-toggle").click(function(e) {

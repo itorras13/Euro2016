@@ -93,6 +93,41 @@
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
+    $(document).ready(function(){
+       $('.group_select').on('change', function(event ) {
+           //restore previously selected value
+           var prevValue = $(this).data('previous');
+           $('.group_select').not(this).find('option[value="'+prevValue+'"]').show();
+
+           //hide option selected now
+           var value = $(this).val();
+           //update previously selected data
+           $(this).data('previous',value);
+           $('.group_select').not(this).find('option[value="'+value+'"]').hide();
+       });
+       $('.quarter_select').on('change', function(event ) {
+           var prevValue = $(this).data('previous');
+           $('.quarter_select').not(this).find('option[value="'+prevValue+'"]').show();
+           var value = $(this).val();
+           $(this).data('previous',value);
+           $('.quarter_select').not(this).find('option[value="'+value+'"]').hide();
+       });
+       $('.semi_select').on('change', function(event ) {
+           var prevValue = $(this).data('previous');
+           $('.semi_select').not(this).find('option[value="'+prevValue+'"]').show();
+           var value = $(this).val();
+           $(this).data('previous',value);
+           $('.semi_select').not(this).find('option[value="'+value+'"]').hide();
+       });
+       $('.fin_select').on('change', function(event ) {
+           var prevValue = $(this).data('previous');
+           $('.fin_select').not(this).find('option[value="'+prevValue+'"]').show();
+           var value = $(this).val();
+           $(this).data('previous',value);
+           $('.fin_select').not(this).find('option[value="'+value+'"]').hide();
+       });
+    });
+
     </script>
 
 </body>
