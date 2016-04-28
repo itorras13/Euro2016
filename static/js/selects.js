@@ -14,10 +14,10 @@ $(document).ready(function(){
     var q6 = $("#q6").children("option").filter(":selected").text();
     var q7 = $("#q7").children("option").filter(":selected").text();
     var q8 = $("#q8").children("option").filter(":selected").text();
-    $(".s1").attr('data-original-title', q1 + " v " + q3 ).tooltip('setContent');
-    $(".s2").attr('data-original-title', q2 + " v " + q6 ).tooltip('setContent');
-    $(".s3").attr('data-original-title', q5 + " v " + q7 ).tooltip('setContent');
-    $(".s4").attr('data-original-title', q4 + " v " + q8 ).tooltip('setContent');
+    $(".s1").attr('data-original-title', q1 + " v " + q2 ).tooltip('setContent');
+    $(".s2").attr('data-original-title', q3 + " v " + q4 ).tooltip('setContent');
+    $(".s3").attr('data-original-title', q5 + " v " + q6 ).tooltip('setContent');
+    $(".s4").attr('data-original-title', q7 + " v " + q8 ).tooltip('setContent');
   });
   $('.semi_select').on('change', function(event ) {
     var prevValue = $(this).data('previous');
@@ -67,7 +67,7 @@ $(document).ready(function(){
     $(".q1").attr('data-original-title', a2 + " v " + c2 ).tooltip('setContent');
     $(".q2").attr('data-original-title', d1 + " v " + third1 ).tooltip('setContent');
     $(".q3").attr('data-original-title', b1 + " v " + third2 ).tooltip('setContent');
-    $(".q4").attr('data-original-title', f2 + " v " + e2 ).tooltip('setContent');
+    $(".q4").attr('data-original-title', f1 + " v " + e2 ).tooltip('setContent');
     $(".q5").attr('data-original-title', c1 + " v " + third3 ).tooltip('setContent');
     $(".q6").attr('data-original-title', e1 + " v " + d2 ).tooltip('setContent');
     $(".q7").attr('data-original-title', a1 + " v " + third4 ).tooltip('setContent');
