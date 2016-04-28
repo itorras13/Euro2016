@@ -65,12 +65,12 @@ $(document).ready(function(){
     var third3 = $("#third3").children("option").filter(":selected").text();
     var third4 = $("#third4").children("option").filter(":selected").text();    
     $(".q1").attr('data-original-title', a2 + " v " + c2 ).tooltip('setContent');
-    $(".q2").attr('data-original-title', b1 + " v " + third1 ).tooltip('setContent');
-    $(".q3").attr('data-original-title', d1 + " v " + third2 ).tooltip('setContent');
-    $(".q4").attr('data-original-title', a1 + " v " + third3 ).tooltip('setContent');
-    $(".q5").attr('data-original-title', c1 + " v " + third4 ).tooltip('setContent');
-    $(".q6").attr('data-original-title', f1 + " v " + e2 ).tooltip('setContent');
-    $(".q7").attr('data-original-title', e1 + " v " + d2 ).tooltip('setContent');
+    $(".q2").attr('data-original-title', d1 + " v " + third1 ).tooltip('setContent');
+    $(".q3").attr('data-original-title', b1 + " v " + third2 ).tooltip('setContent');
+    $(".q4").attr('data-original-title', f2 + " v " + e2 ).tooltip('setContent');
+    $(".q5").attr('data-original-title', c1 + " v " + third3 ).tooltip('setContent');
+    $(".q6").attr('data-original-title', e1 + " v " + d2 ).tooltip('setContent');
+    $(".q7").attr('data-original-title', a1 + " v " + third4 ).tooltip('setContent');
     $(".q8").attr('data-original-title', b2 + " v " + f2 ).tooltip('setContent');
   });
 });
