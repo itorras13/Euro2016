@@ -127,8 +127,8 @@ def show(email):
 			if sub.email == email:
 				name = temp["name"]
 			names_and_emails.append(temp)
-	#Doing this while tournament is going on
-	submissions = []
+	#This hides the submissions
+	# submissions = []
 	return render_template('show.html', email=email, name=name, submissions=submissions, names_and_emails=names_and_emails)
 
 @app.route('/submit', methods=['GET', 'POST'])
