@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Euro 2016 Quiniela</title>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="{{ url_for('static', filename='css/simple-sidebar.css') }}" rel="stylesheet">
+
+	<!-- Social CSS -->
+	<link href="{{ url_for('static', filename='css/bootstrap-social.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='css/font-awesome.min.css') }}" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script>
+        	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        	ga('create', 'UA-51157838-4', 'auto');
+        	ga('send', 'pageview');
+
+        </script>
+
+    </head>
+
+    <body>
+
+    	<div id="wrapper">
+
+    		<!-- Sidebar -->
+    		<div id="sidebar-wrapper">
+    			<ul class="sidebar-nav">
+    				<li class="sidebar-brand">
+    					<a href="/">
+    						Home
+    					</a>
+    				</li>
+    				<li>
+    					<a href="/#rules">Rules</a>
+    				</li>
+    				<li>
+    					<a href="/#points">Point System</a>
+    				</li>
+    				<li>
+    					<a href="/#payment">How To Pay</a>
+    				</li>
+    				<li>
+    					<a href="/submit">Submit Quiniela</a>
+    				</li>
+    				<li>
+    					<a href="/#standings">Standings</a>
+    				</li>
+    				<li>
+    					<a href="/#contact">Contact</a>
+    				</li>
+    			</ul>
+    		</div>
+    		<!-- /#sidebar-wrapper -->
+
+    		<!-- Page Content -->
+    		<div id="page-content-wrapper">
+    			<div class="container-fluid">
+    				<div class="row" id="top">
+    					<a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+    					<div class="col-lg-12">
+    						<h1>View other peoples submissions</h1>
+    					</div>
+    					<!-- <div class="col-lg-12">
+    						<div class="col-sm-4"></div>
+    						<h5 class="col-sm-4 text-center">Choose a person to see their quiniela</h5>
+    					</div>
+    					<div class="col-lg-12">
+    						<div class="col-sm-5"></div>
+    						<select class="col-sm-2" id="show_email" name="show_email">
+    							<option disabled selected value style="display: none"></option>
+    							{% for nae in names_and_emails %}
+    							<option value="{{ nae['email'] }}">{{ nae["name"] }}</option>
+    							{% endfor %}
+    						</select>
+    						<div class="col-sm-5"></div>
+    					</div> -->
+    					<div class="col-lg-12">
+    						<div class="col-sm-4"></div>
+    						<h3 class="col-sm-4 text-center">{{ name }}</h3>
+    					</div>
+    					<div class="col-lg-12">
+    						<div class="col-lg-1"></div>
+    						<div class="col-lg-10 text-center">
+    							{% if submissions != [] %}
+    							{% for sub in submissions %}
+    							{% if sub.email == email %}
+    							<h3>Submission {{ sub.submission_number }} Points: {{ sub.points }}</h1>
+    								<br>
+    								<table class="table table-responsive">
+    									<thead>
+    										<tr>
+    											<th>Match #</th>
+    											<th>Home Team</th>
+    											<th colspan="2">Score</th>
+    											<th>Away Team</th>
+    											<th>Match #</th>
+    											<th>Home Team</th>
+    											<th colspan="2">Score</th>
+    											<th>Away Team</th>
+    										</tr>
+    									</thead>
+    									<tbody>
+    										<tr>
+    											<th colspan="10">Group A</th>
+    										</tr>
+    										<tr>
+    											<th>A1</th>
+    											<td>France</td>
+    											<td>{{ sub.a1h }}</td>
+    											<td>{{ sub.a1a }}</td>
+    											<td>Romania</td>
+    											<th>A2</th>
+    											<td>Albania</td>
+    											<td>{{ sub.a2h }}</td>
+    											<td>{{ sub.a2a }}</td>
+    											<td>Switzerland</td>
+    										</tr>
+    										<tr>
+    											<th>A3</th>
+    											<td>Romania</td>
+    											<td>{{ sub.a3h }}</td>
+    											<td>{{ sub.a3a }}</td>
+    											<td>Switzerland</td>
+    											<th>A4</th>
+    											<td>France</td>
+    											<td>{{ sub.a4h }}</td>
+    											<td>{{ sub.a4a }}</td>
+    											<td>Albania</td>
+    										</tr>
+    										<tr>
+    											<th>A5</th>
+    											<td>Switzerland</td>
+    											<td>{{ sub.a5h }}</td>
+    											<td>{{ sub.a5a }}</td>
+    											<td>France</td>
+    											<th>A6</th>
+    											<td>Romania</td>
+    											<td>{{ sub.a6h }}</td>
+    											<td>{{ sub.a6a }}</td>
+    											<td>Albania</td>
+    										</tr>
+    										<tr>
+    											<th colspan="10">Group B</th>
+    										</tr>
+    										<tr>
+    											<th>B1</th>
+    											<td>Wales</td>
+    											<td>{{ sub.b1h }}</td>
+    											<td>{{ sub.b1a }}</td>
+    											<td>Slovakia</td>
+    											<th>B2</th>
+    											<td>England</td>
+    											<td>{{ sub.b2h }}</td>
+    											<td>{{ sub.b2a }}</td>
+    											<td>Russia</td>
+    										</tr>
+    										<tr>
+    											<th>B3</th>
+    											<td>Russia</td>
+    											<td>{{ sub.b3h }}</td>
+    											<td>{{ sub.b3a }}</td>
+    											<td>Slovakia</td>
+    											<th>B4</th>
+    											<td>England</td>
+    											<td>{{ sub.b4h }}</td>
+    											<td>{{ sub.b4a }}</td>
+    											<td>Wales</td>
+    										</tr>
+    										<tr>
+    											<th>B5</th>
+    											<td>Slovakia</td>
+    											<td>{{ sub.b5h }}</td>
+    											<td>{{ sub.b5a }}</td>
+    											<td>England</td>
+    											<th>B6</th>
+    											<td>Russia</td>
+    											<td>{{ sub.b6h }}</td>
+    											<td>{{ sub.b6a }}</td>
+    											<td>Wales</td>
+    										</tr>
+    										<tr>
+    											<th colspan="10">Group C</th>
+    										</tr>
+    										<tr>
+    											<th>C1</th>
+    											<td>Poland</td>
+    											<td>{{ sub.c1h }}</td>
+    											<td>{{ sub.c1a }}</td>
+    											<td>Northern Ireland</td>
+    											<th>C2</th>
+    											<td>Germany</td>
+    											<td>{{ sub.c2h }}</td>
+    											<td>{{ sub.c2a }}</td>
+    											<td>Ukraine</td>
+    										</tr>
+    										<tr>
+    											<th>C3</th>
+    											<td>Ukraine</td>
+    											<td>{{ sub.c3h }}</td>
+    											<td>{{ sub.c3a }}</td>
+    											<td>Northern Ireland</td>
+    											<th>C4</th>
+    											<td>Germany</td>
+    											<td>{{ sub.c4h }}</td>
+    											<td>{{ sub.c4a }}</td>
+    											<td>Poland</td>
+    										</tr>
+    										<tr>
+    											<th>C5</th>
+    											<td>Northern Ireland</td>
+    											<td>{{ sub.c5h }}</td>
+    											<td>{{ sub.c5a }}</td>
+    											<td>Germany</td>
+    											<th>C6</th>
+    											<td>Ukraine</td>
+    											<td>{{ sub.c6h }}</td>
+    											<td>{{ sub.c6a }}</td>
+    											<td>Poland</td>
+    										</tr>
+    										<tr>
+    											<th colspan="10">Group D</th>
+    										</tr>
+    										<tr>
+    											<th>D1</th>
+    											<td>Turkey</td>
+    											<td>{{ sub.d1h }}</td>
+    											<td>{{ sub.d1a }}</td>
+    											<td>Croatia</td>
+    											<th>D2</th>
+    											<td>Spain</td>
+    											<td>{{ sub.d2h }}</td>
+    											<td>{{ sub.d2a }}</td>
+    											<td>Czech Republic</td>
+    										</tr>
+    										<tr>
+    											<th>D3</th>
+    											<td>Czech Republic</td>
+    											<td>{{ sub.d3h }}</td>
+    											<td>{{ sub.d3a }}</td>
+    											<td>Croatia</td>
+    											<th>D4</th>
+    											<td>Spain</td>
+    											<td>{{ sub.d4h }}</td>
+    											<td>{{ sub.d4a }}</td>
+    											<td>Turkey</td>
+    										</tr>
+    										<tr>
+    											<th>D5</th>
+    											<td>Croatia</td>
+    											<td>{{ sub.d5h }}</td>
+    											<td>{{ sub.d5a }}</td>
+    											<td>Spain</td>
+    											<th>D6</th>
+    											<td>Czech Republic</td>
+    											<td>{{ sub.d6h }}</td>
+    											<td>{{ sub.d6a }}</td>
+    											<td>Turkey</td>
+    										</tr>
+    										<tr>
+    											<th colspan="10">Group E</th>
+    										</tr>
+    										<tr>
+    											<th>E1</th>
+    											<td>Republic of Ireland</td>
+    											<td>{{ sub.e1h }}</td>
+    											<td>{{ sub.e1a }}</td>
+    											<td>Sweden</td>
+    											<th>E2</th>
+    											<td>Belgium</td>
+    											<td>{{ sub.e2h }}</td>
+    											<td>{{ sub.e2a }}</td>
+    											<td>Italy</td>
+    										</tr>
+    										<tr>
+    											<th>E3</th>
+    											<td>Italy</td>
+    											<td>{{ sub.e3h }}</td>
+    											<td>{{ sub.e3a }}</td>
+    											<td>Sweden</td>
+    											<th>E4</th>
+    											<td>Belgium</td>
+    											<td>{{ sub.e4h }}</td>
+    											<td>{{ sub.e4a }}</td>
+    											<td>Republic of Ireland</td>
+    										</tr>
+    										<tr>
+    											<th>E5</th>
+    											<td>Sweden</td>
+    											<td>{{ sub.e5h }}</td>
+    											<td>{{ sub.e5a }}</td>
+    											<td>Belgium</td>
+    											<th>E6</th>
+    											<td>Italy</td>
+    											<td>{{ sub.e6h }}</td>
+    											<td>{{ sub.e6a }}</td>
+    											<td>Republic of Ireland</td>
+    										</tr>
+    										<tr>
+    											<th colspan="10">Group F</th>
+    										</tr>
+    										<tr>
+    											<th>F1</th>
+    											<td>Austria</td>
+    											<td>{{ sub.f1h }}</td>
+    											<td>{{ sub.f1a }}</td>
+    											<td>Hungary</td>
+    											<th>F2</th>
+    											<td>Portugal</td>
+    											<td>{{ sub.f2h }}</td>
+    											<td>{{ sub.f2a }}</td>
+    											<td>Iceland</td>
+    										</tr>
+    										<tr>
+    											<th>F3</th>
+    											<td>Iceland</td>
+    											<td>{{ sub.f3h }}</td>
+    											<td>{{ sub.f3a }}</td>
+    											<td>Hungary</td>
+    											<th>F4</th>
+    											<td>Portugal</td>
+    											<td>{{ sub.f4h }}</td>
+    											<td>{{ sub.f4a }}</td>
+    											<td>Austria</td>
+    										</tr>
+    										<tr>
+    											<th>F5</th>
+    											<td>Hungary</td>
+    											<td>{{ sub.f5h }}</td>
+    											<td>{{ sub.f5a }}</td>
+    											<td>Portugal</td>
+    											<th>F6</th>
+    											<td>Iceland</td>
+    											<td>{{ sub.f6h }}</td>
+    											<td>{{ sub.f6a }}</td>
+    											<td>Austria</td>
+    										</tr>
+    										<tr>
+    											<th colspan="10">Group Standings</th>
+    										</tr>
+    										<tr>
+    											<th>Group</th>
+    											<th colspan="2">1st</th>
+    											<th colspan="2">2nd</th>
+    											<th>Group</th>
+    											<th colspan="2">1st</th>
+    											<th colspan="2">2nd</th>
+    										</tr>
+    										<tr>
+    											<th>A</th>
+    											<td colspan="2">{{ sub.a1 }}</td>
+    											<td colspan="2">{{ sub.a2 }}</td>
+    											<th>B</th>
+    											<td colspan="2">{{ sub.b1 }}</td>
+    											<td colspan="2">{{ sub.b2 }}</td>
+    										</tr>
+    										<tr>
+    											<th>C</th>
+    											<td colspan="2">{{ sub.c1 }}</td>
+    											<td colspan="2">{{ sub.c2 }}</td>
+    											<th>D</th>
+    											<td colspan="2">{{ sub.d1 }}</td>
+    											<td colspan="2">{{ sub.d2 }}</td>
+    										</tr>
+    										<tr>
+    											<th>E</th>
+    											<td colspan="2">{{ sub.e1 }}</td>
+    											<td colspan="2">{{ sub.e2 }}</td>
+    											<th>F</th>
+    											<td colspan="2">{{ sub.f1 }}</td>
+    											<td colspan="2">{{ sub.f2 }}</td>
+    										</tr>
+    										<tr>
+    											<th colspan="2">Third Place</th>
+    											<td colspan="2">{{ sub.third1 }}</td>
+    											<td colspan="2">{{ sub.third2 }}</td>
+    											<td colspan="2">{{ sub.third3 }}</td>
+    											<td colspan="2">{{ sub.third4 }}</td>
+    										</tr>
+    										<tr>
+    											<th colspan="10">Quarter Finalists</th>
+    										</tr>
+    										<tr>
+    											<td></td>
+    											<td colspan="2">{{ sub.q1 }}</td>
+    											<td colspan="2">{{ sub.q2 }}</td>
+    											<td colspan="2">{{ sub.q3 }}</td>
+    											<td colspan="2">{{ sub.q4 }}</td>
+    											<td></td>
+    										</tr>
+    										<tr>
+    											<td></td>
+    											<td colspan="2">{{ sub.q5 }}</td>
+    											<td colspan="2">{{ sub.q6 }}</td>
+    											<td colspan="2">{{ sub.q7 }}</td>
+    											<td colspan="2">{{ sub.q8 }}</td>
+    											<td></td>
+    										</tr>
+    										<tr>
+    											<th colspan="10">Semi Finalists</th>
+    										</tr>
+    										<tr>
+    											<td></td>
+    											<td colspan="2">{{ sub.semi1 }}</td>
+    											<td colspan="2">{{ sub.semi2 }}</td>
+    											<td colspan="2">{{ sub.semi3 }}</td>
+    											<td colspan="2">{{ sub.semi4 }}</td>
+    											<td></td>
+    										</tr>
+    										<tr>
+    											<th colspan="10">Finalists</th>
+    										</tr>
+    										<tr>
+    											<th></th>
+    											<th colspan="2">Finalist 1</th>
+    											<th colspan="2">Finalist 2</th>
+    											<th colspan="2">Champion</th>
+    											<th colspan="2">3rd Place</th>
+    											<th></th>
+    										</tr>
+    										<tr>
+    											<td></td>
+    											<td colspan="2">{{ sub.fin1 }}</td>
+    											<td colspan="2">{{ sub.fin2 }}</td>
+    											<td colspan="2">{{ sub.champion }}</td>
+    											<td colspan="2">{{ sub.third_place }}</td>
+    											<td></td>
+    										</tr>
+    										<tr>
+    											<th colspan="10">Top Scorer</th>
+    										</tr>
+    										<tr>
+    											<td colspan="10">{{ sub.top_scorer }}</td>
+    										</tr>
+    									</tbody>
+    								</table>
+    							<br><br><br>
+    							{% endif %}
+    							{% endfor %}
+    							{% else %}
+    								You cannot view others brackets until the tournament starts
+    							{% endif %}
+    						</div>
+    					</div>	
+    				</div>
+    			</div>
+    		</div>
+    		<!-- /#page-content-wrapper -->
+
+    	</div>
+    	<!-- /#wrapper -->
+
+    	<!-- jQuery -->
+    	<script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+
+    	<!-- Bootstrap Core JavaScript -->
+    	<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+    	<script>
+    		$("#menu-toggle").click(function(e) {
+    			e.preventDefault();
+    			$("#wrapper").toggleClass("toggled");
+    		});
+    	</script>
+
+    </body>
+
+    </html>

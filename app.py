@@ -108,19 +108,28 @@ class Submission(db.Model):
 
 @app.route('/')
 def index():
-	submissions = Submission.query.order_by(Submission.points.desc(), 
-		Submission.id.asc()).all()
-	updated_submissions = []
+	submissions = get_submissions("index")
+	return render_template('index.html', submissions=submissions, modal="none")
+
+# @app.route('/show', defaults={'email': None})
+@app.route('/show/<email>')
+def show(email):
+	submissions = get_submissions("show")
+	names_and_emails = []
+	emails_used = []
+	name = ""
 	for sub in submissions:
-		new_sub = {}
-		new_sub['email'] = sub.email
-		new_sub['first_name'] = sub.first_name
-		new_sub['last_name'] = sub.last_name
-		new_sub['sub_num'] = sub.submission_number
-		new_sub['champion'] = sub.champion
-		new_sub['points'] = sub.points
-		updated_submissions.append(new_sub)
-	return render_template('index.html', submissions=updated_submissions, modal="none")
+		temp = {}
+		if sub.email not in emails_used:
+			emails_used.append(sub.email)
+			temp["email"] = sub.email
+			temp["name"] = str(sub.first_name) + " " + str(sub.last_name)
+			if sub.email == email:
+				name = temp["name"]
+			names_and_emails.append(temp)
+	#Doing this while tournament is going on
+	submissions = []
+	return render_template('show.html', email=email, name=name, submissions=submissions, names_and_emails=names_and_emails)
 
 @app.route('/submit', methods=['GET', 'POST'])
 def submit():
@@ -137,25 +146,36 @@ def submit():
 				'<a href="http://eurocup2016.herokuapp.com/">Link to Website</a><p>Thanks,</p><p>Ignacio and Jose Torras</p>')
 			message.set_from('Ignacio Torras <itorras13@gmail.com>')
 			status, msg = sg.send(message)
-			submissions = Submission.query.order_by(Submission.id.desc()).all()
-			updated_submissions = []
-			for sub in submissions:
-				new_sub = {}
-				new_sub['email'] = sub.email
-				new_sub['first_name'] = sub.first_name
-				new_sub['last_name'] = sub.last_name
-				new_sub['sub_num'] = sub.submission_number
-				new_sub['champion'] = sub.champion
-				new_sub['points'] = sub.points
-				updated_submissions.append(new_sub)
-			return render_template("index.html", submissions=updated_submissions, modal="success")
+			submissions = get_submissions("submit")
+			return render_template("index.html", submissions=submissions, modal="success")
 		else:
 			return render_template("index.html", modal="failure")
 	return render_template('submit.html')
 
 @app.errorhandler(404)
 def page_not_found(error):
-    return redirect(url_for('index'))
+	return redirect(url_for('index'))
+
+def get_submissions(type):
+	if type == "submit":
+		submissions = Submission.query.order_by(Submission.id.desc()).all()
+	else:
+		submissions = Submission.query.order_by(Submission.points.desc(), 
+			Submission.id.asc()).all()
+	if type == "show":
+		return submissions
+	else:
+		updated_submissions = []
+		for sub in submissions:
+			new_sub = {}
+			new_sub['email'] = sub.email
+			new_sub['first_name'] = sub.first_name
+			new_sub['last_name'] = sub.last_name
+			new_sub['sub_num'] = sub.submission_number
+			new_sub['champion'] = sub.champion
+			new_sub['points'] = sub.points
+			updated_submissions.append(new_sub)
+		return updated_submissions
 
 def submit_quiniela(request):
 	email=request.form['email']
