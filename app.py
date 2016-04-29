@@ -137,13 +137,14 @@ def submit():
 		success = submit_quiniela(request)
 		if success:
 			message = sendgrid.Mail()
-			message.add_to(str(request.form['first_name']) + 
-				str(request.form['last_name']) + ' <' + str(request.form['email']) + '>')
+			email = str(request.form['email'])
+			message.add_to(str(request.form['first_name']) + " " +
+				str(request.form['last_name']) + ' <' + email + '>')
 			message.add_bcc('itorras13@gmail.com')
 			message.set_subject('Eurocup16 Submission Confirmed')
-			message.set_html('<p>Thank you for submitting. This is just an email confirming that everything went well.</p>' +
-				'<p>Check the website for any new announcments or update.</p>' +
-				'<a href="http://eurocup2016.herokuapp.com/">Link to Website</a><p>Thanks,</p><p>Ignacio and Jose Torras</p>')
+			submissions = get_submissions("show")
+			html = render_template('email_template.html', submissions=submissions, email=email)
+			message.set_html(html)
 			message.set_from('Ignacio Torras <itorras13@gmail.com>')
 			status, msg = sg.send(message)
 			submissions = get_submissions("submit")
