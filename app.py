@@ -149,7 +149,7 @@ def submit():
 			message.set_html(html)
 			message.set_from('Ignacio Torras <itorras13@gmail.com>')
 			status, msg = sg.send(message)
-			submissions = get_submissions("submit")
+			submissions = get_submissions("index")
 			return render_template("index.html", submissions=submissions, modal="success")
 		else:
 			return render_template("index.html", modal="failure")
@@ -160,11 +160,8 @@ def page_not_found(error):
 	return redirect(url_for('index'))
 
 def get_submissions(type):
-	if type == "submit":
-		submissions = Submission.query.order_by(Submission.id.desc()).all()
-	else:
-		submissions = Submission.query.order_by(Submission.points.desc(), 
-			Submission.id.asc()).all()
+	submissions = Submission.query.order_by(Submission.points.desc(), 
+		Submission.id.desc()).all()
 	if type == "show":
 		return submissions
 	else:
@@ -177,6 +174,7 @@ def get_submissions(type):
 			new_sub['sub_num'] = sub.submission_number
 			new_sub['champion'] = sub.champion
 			new_sub['points'] = sub.points
+			new_sub['payed'] = sub.payed
 			updated_submissions.append(new_sub)
 		return updated_submissions
 
