@@ -60,7 +60,7 @@ class Submission(db.Model):
     top_scorer = db.Column(db.String(40))
     publish_date = db.Column(db.DateTime)
     points = db.Column(db.Integer)
-    payed = db.Column(db.Boolean)
+    paid = db.Column(db.Boolean)
 
     def __init__(self, first_name, last_name, email, submission_number,
 		a1h, a1a, a2h, a2a, a3h, a3a, a4h, a4a, a5h, a5a, a6h, a6a, b1h, b1a, b2h, b2a, b3h, b3a,
@@ -103,7 +103,7 @@ class Submission(db.Model):
         self.top_scorer = top_scorer
         self.publish_date = datetime.utcnow()
         self.points = 0
-        self.payed = False
+        self.paid = False
 
     def __repr__(self):
         return '<Name %r>' % self.first_name
@@ -174,7 +174,7 @@ def get_submissions(type):
 			new_sub['sub_num'] = sub.submission_number
 			new_sub['champion'] = sub.champion
 			new_sub['points'] = sub.points
-			new_sub['payed'] = sub.payed
+			new_sub['paid'] = sub.paid
 			updated_submissions.append(new_sub)
 		return updated_submissions
 
