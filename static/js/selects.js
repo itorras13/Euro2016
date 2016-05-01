@@ -1,11 +1,33 @@
 $(document).ready(function(){
+    var quarterFinalists = [];
+    var semiFinalists = [];
+    var finalists = [];
+    var champs = [];
+    var index = 0;
   $('[data-toggle="tooltip"]').tooltip();
   $('.quarter_select').on('change', function(event ) {
     var prevValue = $(this).data('previous');
+    index = semiFinalists.indexOf(prevValue);
+    if (index > -1) {
+        semiFinalists.splice(index, 1);
+    }
     $('.quarter_select').not(this).find('option[value="'+prevValue+'"]').show();
     var value = $(this).val();
+    semiFinalists.push(value);
+    semiFinalists.sort();
     $(this).data('previous',value);
     $('.quarter_select').not(this).find('option[value="'+value+'"]').hide();
+    $('.semi_select')
+        .find('option')
+        .remove()
+        .end()
+        .append('<option disabled selected value style="display: none"></option>')
+    ;
+    for (var i = 0; i < semiFinalists.length; ++i) {
+        $('.semi_select').append($("<option></option>")
+                    .attr("value",semiFinalists[i])
+                    .text(semiFinalists[i])); 
+    }
     var q1 = $("#q1").children("option").filter(":selected").text();
     var q2 = $("#q2").children("option").filter(":selected").text();
     var q3 = $("#q3").children("option").filter(":selected").text();
@@ -21,10 +43,27 @@ $(document).ready(function(){
   });
   $('.semi_select').on('change', function(event ) {
     var prevValue = $(this).data('previous');
+    index = finalists.indexOf(prevValue);
+    if (index > -1) {
+        finalists.splice(index, 1);
+    }
     $('.semi_select').not(this).find('option[value="'+prevValue+'"]').show();
     var value = $(this).val();
+    finalists.push(value);
+    finalists.sort();
     $(this).data('previous',value);
     $('.semi_select').not(this).find('option[value="'+value+'"]').hide();
+    $('.fin_select')
+        .find('option')
+        .remove()
+        .end()
+        .append('<option disabled selected value style="display: none"></option>')
+    ;
+    for (var i = 0; i < finalists.length; ++i) {
+        $('.fin_select').append($("<option></option>")
+                    .attr("value",finalists[i])
+                    .text(finalists[i])); 
+    }
     var s1 = $("#s1").children("option").filter(":selected").text();
     var s2 = $("#s2").children("option").filter(":selected").text();
     var s3 = $("#s3").children("option").filter(":selected").text();
@@ -34,20 +73,54 @@ $(document).ready(function(){
   });
   $('.fin_select').on('change', function(event ) {
     var prevValue = $(this).data('previous');
+    index = champs.indexOf(prevValue);
+    if (index > -1) {
+        champs.splice(index, 1);
+    }
     $('.fin_select').not(this).find('option[value="'+prevValue+'"]').show();
     var value = $(this).val();
+    champs.push(value);
+    champs.sort();
     $(this).data('previous',value);
     $('.fin_select').not(this).find('option[value="'+value+'"]').hide();
+    $('.champs_select')
+        .find('option')
+        .remove()
+        .end()
+        .append('<option disabled selected value style="display: none"></option>')
+    ;
+    for (var i = 0; i < champs.length; ++i) {
+        $('.champs_select').append($("<option></option>")
+                    .attr("value",champs[i])
+                    .text(champs[i])); 
+    }
     var fin1 = $("#fin1").children("option").filter(":selected").text();
     var fin2 = $("#fin2").children("option").filter(":selected").text();
     $(".champion").attr('data-original-title', fin1 + " v " + fin2 ).tooltip('setContent');
   });
   $('.group_select').on('change', function(event ) {
     var prevValue = $(this).data('previous');
+    index = quarterFinalists.indexOf(prevValue);
+    if (index > -1) {
+        quarterFinalists.splice(index, 1);
+    }
     $('.group_select').not(this).find('option[value="'+prevValue+'"]').show();
     var value = $(this).val();
+    quarterFinalists.push(value);
+    quarterFinalists.sort();
     $(this).data('previous',value);
     $('.group_select').not(this).find('option[value="'+value+'"]').hide();
+    $('.quarter_select')
+        .find('option')
+        .remove()
+        .end()
+        .append('<option disabled selected value style="display: none"></option>')
+    ;
+    for (var i = 0; i < quarterFinalists.length; ++i) {
+        $('.quarter_select').append($("<option></option>")
+                    .attr("value",quarterFinalists[i])
+                    .text(quarterFinalists[i])); 
+    }
     var a1 = $("#a1").children("option").filter(":selected").text();
     var a2 = $("#a2").children("option").filter(":selected").text();
     var b1 = $("#b1").children("option").filter(":selected").text();

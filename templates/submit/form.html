@@ -1,5 +1,8 @@
 <form class="form-horizontal" role="form" action='/submit' method='post'>
   <div class="form-group">
+  <h3 class=" col-sm-8">**Using old broswers like IE8 may not work**</h3>
+  </div>
+  <div class="form-group">
 	<label class="control-label col-sm-2" for="email">Email:</label>
 	<div class="col-sm-6">
 	  <input type="email" class="form-control" name="email" placeholder="Enter email" required></input>
@@ -42,25 +45,25 @@
   <label class="control-label col-sm-1 q1" for="q1" data-toggle="tooltip" data-placement="top" title="">Team 1</label>
   	<div class="col-sm-2">
   		<select class="form-control quarter_select" type="text" id="q1" name="q1" required>
-			{% include '/submit/all_team_options.html' %}
+			<option disabled selected value style="display: none"></option>
 		</select>
   	</div>
   <label class="control-label col-sm-1 q2" for="q2" data-toggle="tooltip" data-placement="top" title="">Team 2</label>
   	<div class="col-sm-2">
   		<select class="form-control quarter_select" type="text" id="q2" name="q2" required>
-			{% include '/submit/all_team_options.html' %}
+			<option disabled selected value style="display: none"></option>
 		</select>
   	</div>
   <label class="control-label col-sm-1 q3" for="q3" data-toggle="tooltip" data-placement="top" title="">Team 3</label>
   	<div class="col-sm-2">
   		<select class="form-control quarter_select" type="text" id="q3" name="q3" required>
-			{% include '/submit/all_team_options.html' %}
+			<option disabled selected value style="display: none"></option>
 		</select>
   	</div>
   <label class="control-label col-sm-1 q4" for="q4" data-toggle="tooltip" data-placement="top" title="">Team 4</label>
   	<div class="col-sm-2">
   		<select class="form-control quarter_select" type="text" id="q4" name="q4" required>
-			{% include '/submit/all_team_options.html' %}
+			<option disabled selected value style="display: none"></option>
 		</select>
   	</div>
   </div>
@@ -68,25 +71,25 @@
   <label class="control-label col-sm-1 q5" for="q5" data-toggle="tooltip" data-placement="top" title="">Team 5</label>
   	<div class="col-sm-2">
   		<select class="form-control quarter_select" type="text" id="q5" name="q5" required>
-			{% include '/submit/all_team_options.html' %}
+			<option disabled selected value style="display: none"></option>
 		</select>
   	</div>
   <label class="control-label col-sm-1 q6" for="q6" data-toggle="tooltip" data-placement="top" title="">Team 6</label>
   	<div class="col-sm-2">
   		<select class="form-control quarter_select" type="text" id="q6" name="q6" required>
-			{% include '/submit/all_team_options.html' %}
+			<option disabled selected value style="display: none"></option>
 		</select>
   	</div>
   <label class="control-label col-sm-1 q7" for="q7" data-toggle="tooltip" data-placement="top" title="">Team 7</label>
   	<div class="col-sm-2">
   		<select class="form-control quarter_select" type="text" id="q7" name="q7" required>
-			{% include '/submit/all_team_options.html' %}
+			<option disabled selected value style="display: none"></option>
 		</select>
   	</div>
   <label class="control-label col-sm-1 q8" for="q8" data-toggle="tooltip" data-placement="top" title="">Team 8</label>
   	<div class="col-sm-2">
   		<select class="form-control quarter_select" type="text" id="q8" name="q8" required>
-			{% include '/submit/all_team_options.html' %}
+			<option disabled selected value style="display: none"></option>
 		</select>
   	</div>
   </div>
@@ -101,25 +104,25 @@
   <label class="control-label col-sm-1 s1" for="semi1" data-toggle="tooltip" data-placement="top" title="">Team 1</label>
   	<div class="col-sm-2">
   		<select class="form-control semi_select" type="text" id="s1" name="semi1" required>
-			{% include '/submit/all_team_options.html' %}
+			<option disabled selected value style="display: none"></option>
 		</select>
   	</div>
   <label class="control-label col-sm-1 s2" for="semi2" data-toggle="tooltip" data-placement="top" title="">Team 2</label>
   	<div class="col-sm-2">
   		<select class="form-control semi_select" type="text" id="s2" name="semi2" required>
-			{% include '/submit/all_team_options.html' %}
+			<option disabled selected value style="display: none"></option>
 		</select>
   	</div>
   <label class="control-label col-sm-1 s3" for="semi3" data-toggle="tooltip" data-placement="top" title="">Team 3</label>
   	<div class="col-sm-2">
   		<select class="form-control semi_select" type="text" id="s3" name="semi3" required>
-			{% include '/submit/all_team_options.html' %}
+			<option disabled selected value style="display: none"></option>
 		</select>
   	</div>
   <label class="control-label col-sm-1 s4" for="semi4" data-toggle="tooltip" data-placement="top" title="">Team 4</label>
   	<div class="col-sm-2">
   		<select class="form-control semi_select" type="text" id="s4" name="semi4" required>
-			{% include '/submit/all_team_options.html' %}
+			<option disabled selected value style="display: none"></option>
 		</select>
   	</div>
   </div>
@@ -131,13 +134,13 @@
   <label class="control-label col-sm-1 fin1" for="fin1" data-toggle="tooltip" data-placement="top" title="">Team 1</label>
   	<div class="col-sm-2">
   		<select class="form-control fin_select" type="text" id="fin1" name="fin1" required>
-			{% include '/submit/all_team_options.html' %}
+			<option disabled selected value style="display: none"></option>
 		</select>
   	</div>
   <label class="control-label col-sm-1 fin2" for="fin2" data-toggle="tooltip" data-placement="top" title="">Team 2</label>
   	<div class="col-sm-2">
   		<select class="form-control fin_select" type="text" id="fin2" name="fin2" required>
-			{% include '/submit/all_team_options.html' %}
+			<option disabled selected value style="display: none"></option>
 		</select>
   	</div>
   </div>
@@ -148,14 +151,14 @@
   <div class="form-group">
   <label class="control-label col-sm-1 champion" for="champion" data-toggle="tooltip" data-placement="top" title="">Champion</label>
   	<div class="col-sm-2">
-  		<select class="form-control" type="text" id="champion" name="champion" required>
-			{% include '/submit/all_team_options.html' %}
+  		<select class="form-control champs_select" type="text" id="champion" name="champion" required>
+			<option disabled selected value style="display: none"></option>
 		</select>
   	</div>
   <label class="control-label col-sm-1" for="third_place" data-toggle="tooltip" data-placement="top" title="Whichever semifinalists that did not make it to final">Third Place</label>
   	<div class="col-sm-2">
   		<select class="form-control fin_select" type="text" name="third_place" required>
-			{% include '/submit/all_team_options.html' %}
+			<option disabled selected value style="display: none"></option>
 		</select>
   	</div>
   </div>
