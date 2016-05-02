@@ -143,8 +143,6 @@ $(document).ready(function(){
 				points = groups[curr][standings[curr].third_place]
 				third = standings[curr].third_place;
 				third_place_teams[third] = {}
-				// dic = {};
-				// dic[third] = points;
 				third_place_teams[third].points = points;
 				third_place_teams[third].group = curr;
 				goals_for = goals_per_team[third].goals_for
