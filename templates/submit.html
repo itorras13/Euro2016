@@ -87,6 +87,22 @@
                 </div>
             </div>
         </div>
+
+        <div class="modal fade" id="notFinishedModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: #d9534f;">
+                        <h3><i class="glyphicon glyphicon-thumbs-down"></i>  Not all the scores have been entered!</h3>
+                    </div>
+                    <div class="modal-body">
+                        <p id="modalParagraph"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- /#page-content-wrapper -->
 
     </div>
@@ -99,6 +115,8 @@
     <script src="static/js/bootstrap.min.js"></script>
 
     <script src="static/js/selects.js"></script>
+
+    <script src="static/js/pointsButton.js"></script>
 
     <script>
     $("#menu-toggle").click(function(e) {
