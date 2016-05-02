@@ -3,8 +3,8 @@ $(document).ready(function(){
 	// var inputs = ["f1h", "f1a", "f2h", "f2a", "f3h", "f3a", "f4h", "f4a", "f5h", "f5a", "f6h", "f6a"]
 	var inputs = ["a1h", "a1a", "a2h", "a2a", "a3h", "a3a", "a4h", "a4a", "a5h", "a5a", "a6h", "a6a", "b1h", "b1a", "b2h", "b2a", "b3h", "b3a", "b4h", "b4a", "b5h", "b5a", "b6h", "b6a", "c1h", "c1a", "c2h", "c2a", "c3h", "c3a", "c4h", "c4a", "c5h", "c5a", "c6h", "c6a", "d1h", "d1a", "d2h", "d2a", "d3h", "d3a", "d4h", "d4a", "d5h", "d5a", "d6h", "d6a", "e1h", "e1a", "e2h", "e2a", "e3h", "e3a", "e4h", "e4a", "e5h", "e5a", "e6h", "e6a", "f1h", "f1a", "f2h", "f2a", "f3h", "f3a", "f4h", "f4a", "f5h", "f5a", "f6h", "f6a"]
 	var input_scores = {}
-	complete = true;
 	$('#pointsButton').on('click', function () {
+		complete = true;
 		var groupA = {France: 0, Romania: 0, Albania: 0, Switzerland: 0}
 		var groupB = {England: 0, Russia: 0, Wales: 0, Slovakia: 0}
 		var groupC = {Germany: 0, Ukraine: 0, Poland: 0, 'Northern Ireland': 0}
@@ -136,6 +136,8 @@ $(document).ready(function(){
 				curr = group_letters[i];
 				first = standings[curr].first_place;
 				second = standings[curr].second_place;
+				$('#' + curr + '1').find('option').remove().end()
+				$('#' + curr + '2').find('option').remove().end()
 				$('#' + curr + '1').append($("<option></option>").attr("value",first).text(first));
 				$('#' + curr + '2').append($("<option></option>").attr("value",second).text(second));
 				points = groups[curr][standings[curr].third_place]
@@ -205,7 +207,10 @@ function updateQuarterFinals() {
 }
 
 function selectThirdPlacePositions(top4) {
-
+	$('#third1').find('option').remove().end();
+	$('#third2').find('option').remove().end();
+	$('#third3').find('option').remove().end();
+	$('#third4').find('option').remove().end();
 	groups = []
 	group_to_team = {}
 	for (var key in top4){
