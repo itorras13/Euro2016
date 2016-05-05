@@ -9,7 +9,7 @@ import socket
 import sendgrid
 
 #SendGrid
-sg = sendgrid.SendGridClient('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')
+sg = sendgrid.SendGridClient(os.environ['SENDGRID_KEY'])
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
