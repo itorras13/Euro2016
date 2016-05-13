@@ -1,77 +1,94 @@
 <h1>Point System</h1>
-	<ul>
-	    <li>Group Stage
-	        <ul>
-	            <li>1 Point - Guessing the result (win,loss,tie) of each game but not predicting the correct score.
-		            <ul>
-		            	<li>
-		            		Example: You predict Spain wins 2-1 but they win 2-0.
-		            	</li>
-		            </ul>
-	            </li>
-	            <li>3 Points - Guessing the result and score of each game.
-	            	<ul>
-		            	<li>
-		            		Example: You predict France wins 2-1 and they win 2-1.
-		            	</li>
-		            </ul>
-	            </li>
-	            <li>2 Points - Guessing the team passes but in the wrong position.
-	            	<ul>
-		            	<li>
-		            		Example: You predict Portugal passes in first place but they actually pass in second place.
-		            	</li>
-		            </ul>
-	            </li>
-	            <li>3 Points - Guessing the team passes in the right position.
-	            	<ul>
-		            	<li>
-		            		Example: Predicting correctly that Germany passes through as first place in their group.
-		            	</li>
-		            </ul>
-	            </li>
-	        </ul>
-	    </li>
-	    <li>Knockout Stage
-	    	<ul>
-	            <li>4 Points per team - For guessing which eight teams qualify to the quarterfinals
-		            <ul>
-		            	<li>
-		            		Order does not matter for here or future predictions
-		            	</li>
-		            	<li>
-		            		You can choose situations that would not be possible like two teams passing to quarterfinals even though you predicted them to play in round of 16.
-		            	</li>
-		            </ul>
-	            </li>
-	            <li>
-	            	6 Points per team - For guessing which four teams qualify to the semifinals
-	            </li>
-	            <li>
-	            	10 Points per team - For guessing which two teams qualify to the finals
-	            </li>
-	            <li>
-	            	6 points - For guessing the third place winner
-	            </li>
-	            <li>
-	            	25 points - For guessing the champion of Euro 2016
-	            </li>
-	            <li>
-	            	10 points - For guessing the top goal scorer of the tournament
-	            </li>
-	        </ul>
-	    </li>
-	    <li>Tie Breakers
-	    	<ol>
-	    		<li>
-	    			Whoever got the most correct scores in the group stage
-	    		</li>
-	    		<li>
-	    			Whoever got the most points in the group stage
-	    		</li>
-	    		<li>
-	    			Whoever predicted the most quarterfinalists correctly
-	    		</li>
-	    	</ol>
-	    </li>
-	</ul>
+<div class="panel-group">
+	<div class="panel panel-default">
+	  <div class="panel-heading">Group Stage</div>
+	  <div class="panel-body">
+	 	<table class="table table-bordered">
+	 		<thead>
+		      <tr>
+		        <th>For</th>
+		        <th>Points</th>
+		        <th>Example</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		      <tr>
+		        <td>Guessing the result (win,loss,tie) but not the score of a game</td>
+		        <td>1</td>
+		        <td>Predict Spain wins 2-1 but they win 2-0</td>
+		      </tr>
+		      <tr>
+		        <td>Guessing the exact result of a game</td>
+		        <td>3</td>
+		        <td>Predict France wins 2-1 and they win 2-1</td>
+		      </tr>
+		      <tr>
+		        <td>Guessing the team passes but in the wrong position</td>
+		        <td>2</td>
+		        <td>Predict Portugal passes in 1st place but they pass in 3rd place</td>
+		      </tr>
+		      <tr>
+		        <td>Guessing the team passes in the right position</td>
+		        <td>3</td>
+		        <td>Predicting correctly that Germany passes as 1st place in their group</td>
+		      </tr>
+		    </tbody>
+	 	</table>
+	  </div>
+	</div>
+	<div class="panel panel-default">
+	  <div class="panel-heading">Knockout Stage</div>
+	  <div class="panel-body">
+	  	<table class="table table-bordered">
+	 		<thead>
+		      <tr>
+		        <th>For</th>
+		        <th>Points</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		      <tr>
+		        <td>Guessing which eight teams qualify to the quarterfinals</td>
+		        <td>4 per Team</td>
+		      </tr>
+		      <tr>
+		        <td>Guessing which four teams qualify to the semifinals</td>
+		        <td>6 per Team</td>
+		      </tr>
+		      <tr>
+		        <td>Guessing which two teams qualify to the finals</td>
+		        <td>10 per Team</td>
+		      </tr>
+		      <tr>
+		        <td>Guessing the third place team</td>
+		        <td>6</td>
+		      </tr>
+		      <tr>
+		      	<td>Guessing the champion of Euro 2016</td>
+		      	<td>25</td>
+		      </tr>
+		      <tr>
+		      	<td>Guessing the top goal scorer of the tournament</td>
+		      	<td>10</td>
+		      </tr>
+		    </tbody>
+	 	</table>
+	  </div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">Tie Breakers</div>
+		<div class="panel-body">
+			<ul class="list-group">    
+			    <li class="list-group-item"> 
+			        1. Whoever got the most correct scores in the group stage
+			    </li>
+			    <li class="list-group-item">
+			        2. Whoever got the most points in the group stage
+			    </li>
+			    <li class="list-group-item">
+			        3. Whoever correctly predicted the most quarterfinalists
+			    </li>
+			</ul>
+		</div>
+	</div>
+</div>
