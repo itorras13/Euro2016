@@ -152,7 +152,8 @@ def submit():
 			submissions = get_submissions("index")
 			return render_template("index.html", submissions=submissions, modal="success")
 		else:
-			return render_template("index.html", modal="failure")
+			submissions = get_submissions("index")
+			return render_template("index.html", modal="failure", submissions=submissions)
 	return render_template('submit.html')
 
 @app.errorhandler(404)

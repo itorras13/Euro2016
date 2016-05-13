@@ -1,4 +1,4 @@
-<form class="form-horizontal" role="form" action='/submit' method='post'>
+<form class="form-horizontal" role="form" action='/submit' id="formfield" method='post'>
   <div class="form-group">
   <h3 class=" col-sm-8">**Using old broswers like IE8 may not work**</h3>
   </div>
@@ -176,11 +176,27 @@
   	</div>
   </div>
 
+  <div class="modal fade" id="submitModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h3>Confirm that you want to submit or close to make changes</h3>
+              </div>
+              <!-- <div class="modal-body">
+                  <p id="modalParagraph"></p>
+              </div> -->
+              <div class="modal-footer">
+                  <button type="submit" id="actualSubmit" class="btn btn-primary">Submit</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+  </div>
 
 
   <div class="form-group"> 
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default">Submit</button>
+      <button type="button" id="submitBtn" class="btn btn-default">Submit</button>
     </div>
   </div>
   </div>
