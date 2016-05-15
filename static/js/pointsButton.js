@@ -156,6 +156,7 @@ $(document).ready(function(){
 		} else {
 			// "Game " + game + " " + home_or_away + " is not filled in yet"
 			$('#bracketCollapse').collapse("hide")
+			$('#modalHead').html('<i class="glyphicon glyphicon-thumbs-down"></i>  Not all the scores have been entered!')
 			$('#modalParagraph').html("<b>Game " + game + " " + home_or_away + " is not filled in yet or is not between 0 and 9!<b>")
 			$('#notFinishedModal').modal('show');
 		}
