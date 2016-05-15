@@ -1,12 +1,12 @@
 <form class="form-horizontal" role="form" action='/submit' id="formfield" method='post'>
   <div class="form-group">
-  <h3 class=" col-sm-8">**Using old broswers like IE8 may not work**</h3>
-  <h3 class=" col-sm-8">**For best results use Chrome Browser**</h3>
+  <h3 class="col-sm-8">**Using old broswers like IE8 may not work**</h3>
+  <h3 class="col-sm-8">**For best results use Chrome Browser**</h3>
   </div>
   <div class="form-group">
 	<label class="control-label col-sm-2" for="email">Email:</label>
 	<div class="col-sm-6">
-	  <input type="email" class="form-control" name="email" placeholder="Enter email" required></input>
+	  <input type="email" class="form-control" name="email" placeholder="Enter e-mail" required></input>
 	</div>
 	<label class="control-label col-sm-2" for="submission_num">Submission #:</label>
 	<div class="col-sm-2">
@@ -38,6 +38,10 @@
   <div class="collapse" id="bracketCollapse">
 
   {% include '/submit/group_standings.html' %}
+  <br>
+  <div class="form-group">
+  <p class="help-block col-sm-12">The choices you get for each Team # are the two teams that would play each other in the scenario you have predicted.</p>
+  </div>
 
   <div class="form-group">
   <label class="control-label col-sm-2">Quarter Finalists</label>
