@@ -25,7 +25,7 @@ $(document).ready(function(){
 			current = 'input[name="' + inputs[i] + '"]';
 			current_value = $(current).val();
 			input_scores[inputs[i]] = parseInt(current_value)
-			if (current_value == empty) {
+			if (current_value == empty || current_value > 9 || current_value < 0) {
 				string_array = inputs[i].split("");
 				game = string_array[0] + string_array[1]
 				game = game.toUpperCase()
@@ -156,7 +156,7 @@ $(document).ready(function(){
 		} else {
 			// "Game " + game + " " + home_or_away + " is not filled in yet"
 			$('#bracketCollapse').collapse("hide")
-			$('#modalParagraph').html("<b>Game " + game + " " + home_or_away + " is not filled in yet!<b>")
+			$('#modalParagraph').html("<b>Game " + game + " " + home_or_away + " is not filled in yet or is not between 0 and 9!<b>")
 			$('#notFinishedModal').modal('show');
 		}
 		$btn.button('reset');
