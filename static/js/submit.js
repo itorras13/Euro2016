@@ -9,6 +9,7 @@ $(document).ready(function(){
 	        	var inputs = ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "semi1",
 	        		"semi2", "semi3", "semi4", "fin1", "fin2", "champion", "third_place", "top_scorer"]
 	            for (var i = 0; i < inputs.length; ++i) {
+	            	text = "Your personal information has not been entered"
 					current = 'select[name="' + inputs[i] + '"]';
 					current_value = $(current).val();
 					if (current_value == null) {
