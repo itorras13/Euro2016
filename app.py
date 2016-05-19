@@ -1,5 +1,6 @@
 # from __future__ import print_function # In python 2.7
 # import sys
+# print(current_stats, file=sys.stderr)
 from flask import Flask, request, render_template, redirect, url_for, flash
 import os
 import psycopg2
@@ -64,15 +65,22 @@ def page_not_found(error):
 
 def create_stats():
 	submissions = get_submissions("show")
-	winners = {"total": 0}
+	total = float(len(submissions))
+	winners = {}
 	for sub in submissions:
-		winners["total"] += 1
 		if sub.champion in winners.keys():
 			winners[sub.champion] += 1
 		else:
 			winners[sub.champion] = 1
-	winners = dict(sorted(winners.items(), key=operator.itemgetter(1)))
-	return winners
+	winners = sorted(winners.items(), key=operator.itemgetter(1))
+	winners_array = []
+	for winner in winners:
+		current = []
+		percentage = float(winner[1])/total * 100
+		percentage = format(percentage, '.2f')
+		current = [winner[0],winner[1],percentage]
+		winners_array.append(current)
+	return winners_array
 
 
 def get_submissions(type):

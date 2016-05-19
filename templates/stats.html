@@ -96,14 +96,11 @@
                         </thead> 
                         <tbody>
                         {% for winner in winners %}
-                        	{% if winner != 'total' %}
-                        	{% set percentage = winners[winner]/winners['total'] * 100 %}
                         	<tr>
-                        		<td>{{winner}}</td>
-                        		<td>{{winners[winner]}}</td>
-                        		<td>{{percentage}}%</td>
+                        		<td>{{winner[0]}}</td>
+                        		<td>{{winner[1]}}</td>
+                        		<td>{{winner[2]}}%</td>
 						    </tr>
-						    {% endif %}
 						{% endfor %}
 						</tbody> 
                         </table>
