@@ -20,4 +20,10 @@
         <i class="fa fa-trophy" aria-hidden="true"></i>  
         Payouts: 1st Place: 60%, 2nd Place: 25%, 3rd Place: 10%, Costs: 5%
     </li>
+    {% if submissions != [] %}
+    <li class="list-group-item">
+        <i class="fa fa-money" aria-hidden="true"></i>  
+        Current Payouts: 1st: ${{submissions|count * 20 * 0.60}} 2nd: ${{submissions|count * 20 * 0.25}} 3rd: ${{submissions|count * 20 * 0.1}}
+    </li>
+    {% endif %}
 </ul>
