@@ -107,7 +107,7 @@
                         <h1>Standings</h1>
                         {% if submissions != [] %}
                             <p>Current Payouts: 1st: ${{submissions|count * 20 * 0.60}} 2nd: ${{submissions|count * 20 * 0.25}} 3rd: ${{submissions|count * 20 * 0.1}}</p>
-                            Click on First Name to see his or her bracket
+                            Once sumbissions are closed you will be able to click on names to see the brackets and winners will be shown
                             <table class="table table-striped table-responsive">
                                 <thead>
                                     <tr>
@@ -117,10 +117,11 @@
                                 <tbody>
                                     {% for submission in submissions %}
                                         <tr>
-                                            <td><a href="show/{{submission['email']}}">{{submission['first_name']}}</a></td>
+                                            <td><!-- <a href="show/{{submission['email']}}"> -->{{submission['first_name']}}</a></td>
                                             <td>{{submission['last_name']}}</td>
                                             <td>{{submission['sub_num']}}</td>
-                                            <td>{{submission['champion']}}</td>
+                                            <!-- <td>{{submission['champion']}}</td> -->
+                                            <td><span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span></td>
                                             <td>{{submission['points']}}</td>
                                             {% if submission['paid'] %}
                                                 <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
