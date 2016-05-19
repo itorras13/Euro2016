@@ -7,6 +7,7 @@ from flask.ext.sqlalchemy import SQLAlchemy
 from datetime import datetime
 import socket
 import sendgrid
+import operator
 
 #SendGrid
 sg = sendgrid.SendGridClient(os.environ['SENDGRID_KEY'])
@@ -22,6 +23,11 @@ from models import Submission
 def index():
 	submissions = get_submissions("index")
 	return render_template('index.html', submissions=submissions, modal="none")
+
+@app.route('/stats')
+def stats():
+	current_stats = create_stats()
+	return render_template('stats.html', winners=current_stats)
 
 # @app.route('/show', defaults={'email': None})
 @app.route('/show/<id>')
@@ -55,6 +61,19 @@ def submit():
 @app.errorhandler(404)
 def page_not_found(error):
 	return redirect(url_for('index'))
+
+def create_stats():
+	submissions = get_submissions("show")
+	winners = {"total": 0}
+	for sub in submissions:
+		winners["total"] += 1
+		if sub.champion in winners.keys():
+			winners[sub.champion] += 1
+		else:
+			winners[sub.champion] = 1
+	winners = dict(sorted(winners.items(), key=operator.itemgetter(1)))
+	return winners
+
 
 def get_submissions(type):
 	submissions = Submission.query.order_by(Submission.points.desc(), 
