@@ -80,7 +80,7 @@ def create_stats():
 		percentage = format(percentage, '.2f')
 		current = [winner[0],winner[1],percentage]
 		winners_array.append(current)
-	winners_array[::-1]
+	winners_array = winners_array[::-1]
 	return winners_array
 
 
