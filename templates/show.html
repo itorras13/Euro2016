@@ -99,14 +99,11 @@
     					</div> -->
     					<div class="col-lg-12">
     						<div class="col-sm-4"></div>
-    						<h3 class="col-sm-4 text-center">{{ name }}</h3>
+    						<h3 class="col-sm-4 text-center">{{ sub.first_name }}  {{ sub.last_name}}</h3>
     					</div>
     					<div class="col-lg-12">
     						<div class="col-lg-1"></div>
     						<div class="col-lg-10 text-center">
-    							{% if submissions != [] %}
-    							{% for sub in submissions %}
-    							{% if sub.email == email %}
     							<h3>Submission {{ sub.submission_number }} Points: {{ sub.points }}</h1>
     								<br>
     								<table class="table table-responsive">
@@ -457,11 +454,6 @@
     									</tbody>
     								</table>
     							<br><br><br>
-    							{% endif %}
-    							{% endfor %}
-    							{% else %}
-    								You cannot view others brackets until the tournament starts
-    							{% endif %}
     						</div>
     					</div>	
     				</div>

@@ -24,24 +24,10 @@ def index():
 	return render_template('index.html', submissions=submissions, modal="none")
 
 # @app.route('/show', defaults={'email': None})
-@app.route('/show/<email>')
-def show(email):
-	submissions = get_submissions("show")
-	names_and_emails = []
-	emails_used = []
-	name = ""
-	for sub in submissions:
-		temp = {}
-		if sub.email not in emails_used:
-			emails_used.append(sub.email)
-			temp["email"] = sub.email
-			temp["name"] = str(sub.first_name) + " " + str(sub.last_name)
-			if sub.email == email:
-				name = temp["name"]
-			names_and_emails.append(temp)
-	#This hides the submissions
-	# submissions = []
-	return render_template('show.html', email=email, name=name, submissions=submissions, names_and_emails=names_and_emails)
+@app.route('/show/<id>')
+def show(id):
+	sub = Submission.query.filter_by(id=id).all()
+	return render_template('show.html', sub=sub[0])
 
 @app.route('/submit', methods=['GET', 'POST'])
 def submit():
@@ -86,6 +72,7 @@ def get_submissions(type):
 			new_sub['champion'] = sub.champion
 			new_sub['points'] = sub.points
 			new_sub['paid'] = sub.paid
+			new_sub['id'] = sub.id
 			updated_submissions.append(new_sub)
 		return updated_submissions
 
