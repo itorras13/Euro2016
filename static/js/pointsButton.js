@@ -307,6 +307,20 @@ function three_way_tie(goals_per_team, team1, team2, team3) {
 	} else if (team3_goal_for > team1_goal_for && team3_goal_for > team2_goal_for) {
 		return team3; 
 	}
+	if (team1_goal_diff > team3_goal_diff || team1_goal_diff > team2_goal_diff) {
+		return team1;
+	} else if (team2_goal_diff > team1_goal_diff || team2_goal_diff > team3_goal_diff) {
+		return team2; 
+	} else if (team3_goal_diff > team1_goal_diff || team3_goal_diff > team2_goal_diff) {
+		return team3; 
+	}
+	if (team1_goal_for > team3_goal_for || team1_goal_for > team2_goal_for) {
+		return team1;
+	} else if (team2_goal_for > team1_goal_for || team2_goal_for > team3_goal_for) {
+		return team2; 
+	} else if (team3_goal_for > team1_goal_for|| team3_goal_for > team2_goal_for) {
+		return team3; 
+	}
 	return team1;
 }
 
