@@ -3,3 +3,4 @@ easy.py
 *.pyc
 .env
 .DS_Store
+latest.dump
