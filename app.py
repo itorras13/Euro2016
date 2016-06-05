@@ -28,7 +28,7 @@ def index():
 @app.route('/stats')
 def stats():
 	current_stats = create_stats()
-	return render_template('stats.html', winners=current_stats)
+	return render_template('stats.html', stats=current_stats)
 
 # @app.route('/show', defaults={'email': None})
 @app.route('/show/<id>')
@@ -66,22 +66,64 @@ def page_not_found(error):
 def create_stats():
 	submissions = get_submissions("show")
 	total = float(len(submissions))
+	top_scorers = {}
 	winners = {}
+	finals = {}
+	semifinals = {}
+	scores = {}
+	semi_vars = ["semi1", "semi2", "semi3", "semi4"]
+	games = ["a1h", "a2h", "a3h", "a4h", "a5h", "a6h", "b1h", "b2h", "b3h", "b4h", "b5h", "b6h", "c1h", "c2h", "c3h", "c4h", "c5h", "c6h", "d1h", "d2h", "d3h", "d4h", "d5h", "d6h"]
 	for sub in submissions:
 		if sub.champion in winners.keys():
 			winners[sub.champion] += 1
 		else:
 			winners[sub.champion] = 1
-	winners = sorted(winners.items(), key=operator.itemgetter(1))
-	winners_array = []
-	for winner in winners:
+		if sub.top_scorer in top_scorers.keys():
+			top_scorers[sub.top_scorer] += 1
+		else:
+			top_scorers[sub.top_scorer] = 1
+		final1 = sub.fin1 + "-" + sub.fin2
+		final2 = sub.fin2 + "-" + sub.fin1
+		if final1 in finals.keys():
+			finals[final1] += 1
+		elif final2 in finals.keys():
+			finals[final2] += 1
+		else:
+			finals[final1] = 1
+		sub = sub.__dict__
+		for semi in semi_vars:
+			if sub[semi] in semifinals.keys():
+				semifinals[sub[semi]] += 1
+			else:
+				semifinals[sub[semi]] = 1
+		for game in games:
+			away = game[:2] + "a"
+			if sub[game] > sub[away]:
+				score = str(sub[game]) + "-" + str(sub[away])
+			else:
+				score = str(sub[away]) + "-" + str(sub[game])
+			if score in scores:
+				scores[score] += 1
+			else:
+				scores[score] = 1
+	winners_array = organize_stats(winners, total)
+	scorer_array = organize_stats(top_scorers, total)
+	finals_array = organize_stats(finals, total)
+	semi_array = organize_stats(semifinals, total)
+	scores_array = organize_stats(scores, total*24)
+	return {"winners": winners_array, "scorers": scorer_array, "finals": finals_array, "semis": semi_array, "scores": scores_array}
+
+def organize_stats(variables, total):
+	variables = sorted(variables.items(), key=operator.itemgetter(1))
+	array = []
+	for var in variables:
 		current = []
-		percentage = float(winner[1])/total * 100
+		percentage = float(var[1])/total * 100
 		percentage = format(percentage, '.2f')
-		current = [winner[0],winner[1],percentage]
-		winners_array.append(current)
-	winners_array = winners_array[::-1]
-	return winners_array
+		current = [var[0],var[1],percentage]
+		array.append(current)
+	array = array[::-1]
+	return array
 
 
 def get_submissions(type):

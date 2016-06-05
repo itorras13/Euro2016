@@ -49,27 +49,27 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
-                    <a href="/#top">
-                        Top
+                    <a href="/">
+                        Home
                     </a>
                 </li>
                 <li>
-                    <a href="#rules">Rules</a>
+                    <a href="/#rules">Rules</a>
                 </li>
                 <li>
-                    <a href="#points">Point System</a>
+                    <a href="/#points">Point System</a>
                 </li>
                 <li>
-                    <a href="#payment">How To Pay</a>
+                    <a href="/#payment">How To Pay</a>
                 </li>
                 <li>
                     <a href="{{url_for('submit')}}">Submit Bracket</a>
                 </li>
                 <li>
-                    <a href="#standings">Standings</a>
+                    <a href="/#standings">Standings</a>
                 </li>
                 <li>
-                    <a href="#contact">Contact</a>
+                    <a href="/#contact">Contact</a>
                 </li>
                 <li>
                     <a href="http://copaamerica16.herokuapp.com/">Copa America Challenge</a>
@@ -82,30 +82,123 @@
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <div class="row" id="stats">
+                <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
                     <div class="col-lg-12">
                         <h1>Bracket Statistics</h1>
                     </div>
                 </div>
                 <div class="row" id="stats">
                     <div class="col-lg-12">
-                    	<h3>Predicted Champions</h3>
+                        <h3>Predicted Champions</h3>
                         <table class="table table-bordered table-responsive">
                         <thead>
-                        	<tr>
-                        		<th>Winner</th>
-                        		<th>Number of Brackets</th>
-                        		<th>Percentage</th>
-                        	</tr>
+                            <tr>
+                                <th>Winner</th>
+                                <th>Number of Brackets</th>
+                                <th>Percentage</th>
+                            </tr>
                         </thead> 
                         <tbody>
-                        {% for winner in winners %}
-                        	<tr>
-                        		<td>{{winner[0]}}</td>
-                        		<td>{{winner[1]}}</td>
-                        		<td>{{winner[2]}}%</td>
-						    </tr>
-						{% endfor %}
-						</tbody> 
+                        {% for winner in stats["winners"] %}
+                            <tr>
+                                <td>{{winner[0]}}</td>
+                                <td>{{winner[1]}}</td>
+                                <td>{{winner[2]}}%</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody> 
+                        </table>
+                    </div>
+                </div>
+                <div class="row" id="stats">
+                    <div class="col-lg-12">
+                        <h3>Predicted Top Scorers</h3>
+                        <table class="table table-bordered table-responsive">
+                        <thead>
+                            <tr>
+                                <th>Top Scorer</th>
+                                <th>Number of Brackets</th>
+                                <th>Percentage</th>
+                            </tr>
+                        </thead> 
+                        <tbody>
+                        {% for scorer in stats["scorers"] %}
+                            <tr>
+                                <td>{{scorer[0]}}</td>
+                                <td>{{scorer[1]}}</td>
+                                <td>{{scorer[2]}}%</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody> 
+                        </table>
+                    </div>
+                </div>
+                <div class="row" id="stats">
+                    <div class="col-lg-12">
+                        <h3>Predicted Finalists</h3>
+                        <table class="table table-bordered table-responsive">
+                        <thead>
+                            <tr>
+                                <th>Final</th>
+                                <th>Number of Brackets</th>
+                                <th>Percentage</th>
+                            </tr>
+                        </thead> 
+                        <tbody>
+                        {% for final in stats["finals"] %}
+                            <tr>
+                                <td>{{final[0]}}</td>
+                                <td>{{final[1]}}</td>
+                                <td>{{final[2]}}%</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody> 
+                        </table>
+                    </div>
+                </div>
+                <div class="row" id="stats">
+                    <div class="col-lg-12">
+                        <h3>Predicted Semi Finalists</h3>
+                        <table class="table table-bordered table-responsive">
+                        <thead>
+                            <tr>
+                                <th>Semi Finalists</th>
+                                <th>Number of Brackets</th>
+                                <th>Percentage</th>
+                            </tr>
+                        </thead> 
+                        <tbody>
+                        {% for semifinalist in stats["semis"] %}
+                            <tr>
+                                <td>{{semifinalist[0]}}</td>
+                                <td>{{semifinalist[1]}}</td>
+                                <td>{{semifinalist[2]}}%</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody> 
+                        </table>
+                    </div>
+                </div>
+                <div class="row" id="stats">
+                    <div class="col-lg-12">
+                        <h3>Predicted Scores</h3>
+                        <table class="table table-bordered table-responsive">
+                        <thead>
+                            <tr>
+                                <th>Scores</th>
+                                <th>Number of Times</th>
+                                <th>Percentage</th>
+                            </tr>
+                        </thead> 
+                        <tbody>
+                        {% for score in stats["scores"] %}
+                            <tr>
+                                <td>{{score[0]}}</td>
+                                <td>{{score[1]}}</td>
+                                <td>{{score[2]}}%</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody> 
                         </table>
                     </div>
                 </div>
