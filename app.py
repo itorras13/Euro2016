@@ -36,28 +36,28 @@ def show(id):
 	sub = Submission.query.filter_by(id=id).all()
 	return render_template('show.html', sub=sub[0])
 
-@app.route('/submit', methods=['GET', 'POST'])
-def submit():
-	if request.method == 'POST':
-		success = submit_quiniela(request)
-		if success:
-			message = sendgrid.Mail()
-			email = str(request.form['email'])
-			message.add_to(str(request.form['first_name']) + " " +
-				str(request.form['last_name']) + ' <' + email + '>')
-			message.add_bcc('itorras13@gmail.com')
-			message.set_subject('Eurocup16 Submission Confirmed')
-			submissions = get_submissions("show")
-			html = render_template('email_template.html', submissions=submissions, email=email)
-			message.set_html(html)
-			message.set_from('Ignacio Torras <itorras13@gmail.com>')
-			status, msg = sg.send(message)
-			submissions = get_submissions("index")
-			return render_template("index.html", submissions=submissions, modal="success")
-		else:
-			submissions = get_submissions("index")
-			return render_template("index.html", modal="failure", submissions=submissions)
-	return render_template('submit.html')
+# @app.route('/submit', methods=['GET', 'POST'])
+# def submit():
+# 	if request.method == 'POST':
+# 		success = submit_quiniela(request)
+# 		if success:
+# 			message = sendgrid.Mail()
+# 			email = str(request.form['email'])
+# 			message.add_to(str(request.form['first_name']) + " " +
+# 				str(request.form['last_name']) + ' <' + email + '>')
+# 			message.add_bcc('itorras13@gmail.com')
+# 			message.set_subject('Eurocup16 Submission Confirmed')
+# 			submissions = get_submissions("show")
+# 			html = render_template('email_template.html', submissions=submissions, email=email)
+# 			message.set_html(html)
+# 			message.set_from('Ignacio Torras <itorras13@gmail.com>')
+# 			status, msg = sg.send(message)
+# 			submissions = get_submissions("index")
+# 			return render_template("index.html", submissions=submissions, modal="success")
+# 		else:
+# 			submissions = get_submissions("index")
+# 			return render_template("index.html", modal="failure", submissions=submissions)
+# 	return render_template('submit.html')
 
 @app.errorhandler(404)
 def page_not_found(error):
@@ -128,7 +128,7 @@ def organize_stats(variables, total):
 
 def get_submissions(type):
 	submissions = Submission.query.order_by(Submission.points.desc(), 
-		Submission.id.desc()).all()
+		Submission.first_name.asc()).all()
 	if type == "show":
 		return submissions
 	else:

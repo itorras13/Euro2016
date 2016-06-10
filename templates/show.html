@@ -108,6 +108,10 @@
     						<div class="col-lg-1"></div>
     						<div class="col-lg-10 text-center">
     							<h3>Submission {{ sub.submission_number }} Points: {{ sub.points }}</h1>
+                                <span style="background-color:#00cc00">Green means score was predicted correctly (3 points)</span><br>
+                                <span style="background-color:#ffff66">Yellow means winner or tie was predicted correctly (1 point)</span><br>
+                                <span style="background-color:#ff4d4d">Red means winner or tie was predicted wrong (0 points)</span><br> 
+                                (1) Actual scored in parantheses (0)
     								<br>
     								<table class="table table-responsive">
     									<thead>
@@ -479,7 +483,11 @@
     			$("#wrapper").toggleClass("toggled");
     		});
     	</script>
-
+    <script type="text/javascript"> 
+    var infolinks_pid = 2797130; var infolinks_wsid = 0; 
+    </script> 
+    <script type="text/javascript" src="//resources.infolinks.com/js/infolinks_main.js"> 
+    </script>
     </body>
 
     </html>
