@@ -145,8 +145,15 @@
     											<td>Romania</td>
     											<th>A2</th>
     											<td>Albania</td>
-    											<td>{{ sub.a2h }}</td>
-    											<td>{{ sub.a2a }}</td>
+                                                {% if sub.a2h==0 and sub.a2a==1 %}
+                                                    {% set color='#00cc00' %}
+                                                {% elif sub.a2h < sub.a2a %}
+                                                    {% set color='#ffff66' %}
+                                                {% else %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% endif %}
+    											<td bgcolor={{color}}>(2)&nbsp;&nbsp;{{ sub.a2h }}</td>
+    											<td bgcolor={{color}}>{{ sub.a2a }}&nbsp;&nbsp;(0)</td>
     											<td>Switzerland</td>
     										</tr>
     										<tr>
