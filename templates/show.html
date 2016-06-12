@@ -278,8 +278,15 @@
     										<tr>
     											<th>D1</th>
     											<td>Turkey</td>
-    											<td>{{ sub.d1h }}</td>
-    											<td>{{ sub.d1a }}</td>
+    											{% if sub.d1h==0 and sub.d1a==1 %}
+                                                    {% set color='#00cc00' %}
+                                                {% elif sub.d1h<sub.d1a %}
+                                                    {% set color='#ffff66' %}
+                                                {% else %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% endif %}
+                                                <td bgcolor={{color}}>(0)&nbsp;&nbsp;{{ sub.d1h }}</td>
+                                                <td bgcolor={{color}}>{{ sub.d1a }}&nbsp;&nbsp;(1)</td>
     											<td>Croatia</td>
     											<th>D2</th>
     											<td>Spain</td>
