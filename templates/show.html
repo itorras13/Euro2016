@@ -239,8 +239,15 @@
     										<tr>
     											<th>C1</th>
     											<td>Poland</td>
-    											<td>{{ sub.c1h }}</td>
-    											<td>{{ sub.c1a }}</td>
+                                                {% if sub.c1h==1 and sub.c1a==0 %}
+                                                    {% set color='#00cc00' %}
+                                                {% elif sub.c1h=sub.c1a %}
+                                                    {% set color='#ffff66' %}
+                                                {% else %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% endif %}
+                                                <td bgcolor={{color}}>(1)&nbsp;&nbsp;{{ sub.c1h }}</td>
+                                                <td bgcolor={{color}}>{{ sub.c1a }}&nbsp;&nbsp;(0)</td>
     											<td>Northern Ireland</td>
     											<th>C2</th>
     											<td>Germany</td>
