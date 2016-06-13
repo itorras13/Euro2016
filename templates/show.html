@@ -345,8 +345,15 @@
     										<tr>
     											<th>E1</th>
     											<td>Republic of Ireland</td>
-    											<td>{{ sub.e1h }}</td>
-    											<td>{{ sub.e1a }}</td>
+    											{% if sub.e1h==1 and sub.e1a==1 %}
+                                                    {% set color='#00cc00' %}
+                                                {% elif sub.e1h == sub.e1a %}
+                                                    {% set color='#ffff66' %}
+                                                {% else %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% endif %}
+                                                <td bgcolor={{color}}>(1)&nbsp;&nbsp;{{ sub.e1h }}</td>
+                                                <td bgcolor={{color}}>{{ sub.e1a }}&nbsp;&nbsp;(1)</td>
     											<td>Sweden</td>
     											<th>E2</th>
     											<td>Belgium</td>
