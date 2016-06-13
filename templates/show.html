@@ -357,8 +357,15 @@
     											<td>Sweden</td>
     											<th>E2</th>
     											<td>Belgium</td>
-    											<td>{{ sub.e2h }}</td>
-    											<td>{{ sub.e2a }}</td>
+                                                {% if sub.e2h==0 and sub.e2a==2 %}
+                                                    {% set color='#00cc00' %}
+                                                {% elif sub.e2h < sub.e2a %}
+                                                    {% set color='#ffff66' %}
+                                                {% else %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% endif %}
+                                                <td bgcolor={{color}}>(0)&nbsp;&nbsp;{{ sub.e2h }}</td>
+                                                <td bgcolor={{color}}>{{ sub.e2a }}&nbsp;&nbsp;(2)</td>
     											<td>Italy</td>
     										</tr>
     										<tr>
