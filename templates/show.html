@@ -410,8 +410,15 @@
     											<td>Hungary</td>
     											<th>F2</th>
     											<td>Portugal</td>
-    											<td>{{ sub.f2h }}</td>
-    											<td>{{ sub.f2a }}</td>
+    											{% if sub.f2h==1 and sub.f2a==1 %}
+                                                    {% set color='#00cc00' %}
+                                                {% elif sub.f2h == sub.f2a %}
+                                                    {% set color='#ffff66' %}
+                                                {% else %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% endif %}
+                                                <td bgcolor={{color}}>(1)&nbsp;&nbsp;{{ sub.f2h }}</td>
+                                                <td bgcolor={{color}}>{{ sub.f2a }}&nbsp;&nbsp;(1)</td>
     											<td>Iceland</td>
     										</tr>
     										<tr>
@@ -560,11 +567,6 @@
     			$("#wrapper").toggleClass("toggled");
     		});
     	</script>
-    <script type="text/javascript"> 
-    var infolinks_pid = 2797130; var infolinks_wsid = 0; 
-    </script> 
-    <script type="text/javascript" src="//resources.infolinks.com/js/infolinks_main.js"> 
-    </script>
     </body>
 
     </html>
