@@ -398,8 +398,15 @@
     										<tr>
     											<th>F1</th>
     											<td>Austria</td>
-    											<td>{{ sub.f1h }}</td>
-    											<td>{{ sub.f1a }}</td>
+    											{% if sub.f1h==0 and sub.f1a==2 %}
+                                                    {% set color='#00cc00' %}
+                                                {% elif sub.f1h < sub.f1a %}
+                                                    {% set color='#ffff66' %}
+                                                {% else %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% endif %}
+                                                <td bgcolor={{color}}>(0)&nbsp;&nbsp;{{ sub.f1h }}</td>
+                                                <td bgcolor={{color}}>{{ sub.f1a }}&nbsp;&nbsp;(2)</td>
     											<td>Hungary</td>
     											<th>F2</th>
     											<td>Portugal</td>
