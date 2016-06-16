@@ -238,8 +238,15 @@
     											<td>Slovakia</td>
     											<th>B4</th>
     											<td>England</td>
-    											<td>{{ sub.b4h }}</td>
-    											<td>{{ sub.b4a }}</td>
+    											{% if sub.b4h==2 and sub.b4a==1 %}
+                                                    {% set color='#00cc00' %}
+                                                {% elif sub.b4h > sub.b4a %}
+                                                    {% set color='#ffff66' %}
+                                                {% else %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% endif %}
+                                                <td bgcolor={{color}}>(2)&nbsp;&nbsp;{{ sub.b4h }}</td>
+                                                <td bgcolor={{color}}>{{ sub.b4a }}&nbsp;&nbsp;(1)</td>
     											<td>Wales</td>
     										</tr>
     										<tr>
