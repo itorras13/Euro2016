@@ -360,8 +360,15 @@
     										<tr>
     											<th>D3</th>
     											<td>Czech Republic</td>
-    											<td>{{ sub.d3h }}</td>
-    											<td>{{ sub.d3a }}</td>
+    											{% if sub.d3h==2 and sub.d3a==2 %}
+                                                    {% set color='#00cc00' %}
+                                                {% elif sub.d3h == sub.d3a %}
+                                                    {% set color='#ffff66' %}
+                                                {% else %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% endif %}
+                                                <td bgcolor={{color}}>(2)&nbsp;&nbsp;{{ sub.d3h }}</td>
+                                                <td bgcolor={{color}}>{{ sub.d3a }}&nbsp;&nbsp;(2)</td>
     											<td>Croatia</td>
     											<th>D4</th>
     											<td>Spain</td>
