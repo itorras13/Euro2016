@@ -506,8 +506,15 @@
     											<td>Hungary</td>
     											<th>F4</th>
     											<td>Portugal</td>
-    											<td>{{ sub.f4h }}</td>
-    											<td>{{ sub.f4a }}</td>
+    											{% if sub.f4h==0 and sub.f4a==0 %}
+                                                    {% set color='#00cc00' %}
+                                                {% elif sub.f4h == sub.f4a %}
+                                                    {% set color='#ffff66' %}
+                                                {% else %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% endif %}
+                                                <td bgcolor={{color}}>(0)&nbsp;&nbsp;{{ sub.f4h }}</td>
+                                                <td bgcolor={{color}}>{{ sub.f4a }}&nbsp;&nbsp;(0)</td>
     											<td>Austria</td>
     										</tr>
     										<tr>
