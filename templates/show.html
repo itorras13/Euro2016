@@ -266,13 +266,27 @@
     										<tr>
     											<th>B5</th>
     											<td>Slovakia</td>
-    											<td>{{ sub.b5h }}</td>
-    											<td>{{ sub.b5a }}</td>
+    											{% if sub.b5h==0 and sub.b5a==0 %}
+                                                    {% set color='#00cc00' %}
+                                                {% elif sub.b5h == sub.b5a %}
+                                                    {% set color='#ffff66' %}
+                                                {% else %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% endif %}
+                                                <td bgcolor={{color}}>(0)&nbsp;&nbsp;{{ sub.b5h }}</td>
+                                                <td bgcolor={{color}}>{{ sub.b5a }}&nbsp;&nbsp;(0)</td>
     											<td>England</td>
     											<th>B6</th>
     											<td>Russia</td>
-    											<td>{{ sub.b6h }}</td>
-    											<td>{{ sub.b6a }}</td>
+    											{% if sub.b6h==0 and sub.b6a==3 %}
+                                                    {% set color='#00cc00' %}
+                                                {% elif sub.b6h < sub.b6a %}
+                                                    {% set color='#ffff66' %}
+                                                {% else %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% endif %}
+                                                <td bgcolor={{color}}>(0)&nbsp;&nbsp;{{ sub.b6h }}</td>
+                                                <td bgcolor={{color}}>{{ sub.b6a }}&nbsp;&nbsp;(3)</td>
     											<td>Wales</td>
     										</tr>
     										<tr>
@@ -563,23 +577,25 @@
     										</tr>
     										<tr>
     											<th>A</th>
-                                                {% set group_a=['France','Switzerland'] %}
+                                                {% set first=['France'] %}
+                                                {% set second=['Switzerland'] %}
                                                 {% set thirds=['Albania'] %}
-    											{% if sub.a1=='France'%}
+                                                {% set out=['Romania'] %}
+    											{% if sub.a1 in first%}
                                                     {% set color='#00cc00' %}
-                                                {% elif sub.a1=='Switzerland' %}
+                                                {% elif sub.a1 in second %}
                                                     {% set color='#ffff66' %}
-                                                {% elif sub.a1=='Romania' %}
+                                                {% elif sub.a1 in out %}
                                                     {% set color='#ff4d4d' %}
                                                 {% else %}
                                                     {% set color='' %}
                                                 {% endif %}
                                                 <td colspan="2" bgcolor={{color}}>{{ sub.a1 }}</td>
-    											{% if sub.a2=='Switzerland'%}
+    											{% if sub.a2 in second%}
                                                     {% set color='#00cc00' %}
-                                                {% elif sub.a2=='France' %}
+                                                {% elif sub.a2 in first %}
                                                     {% set color='#ffff66' %}
-                                                {% elif sub.a2=='Romania' %}
+                                                {% elif sub.a2 in out %}
                                                     {% set color='#ff4d4d' %}
                                                 {% else %}
                                                     {% set color='' %}
@@ -607,24 +623,38 @@
     										</tr>
     										<tr>
     											<th colspan="2">Third Place</th>
-    											<td colspan="2">{{ sub.third1 }}</td>
-    											{% if sub.third2 in group_a%}
+    											{% if sub.third1 in first+second %}
                                                     {% set color='#ffff66' %}
-                                                {% elif sub.third2=='Romania' %}
+                                                {% elif sub.third1 in out %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% else %}
+                                                    {% set color='' %}
+                                                {% endif %}
+                                                <td colspan="2" bgcolor={{color}}>{{ sub.third1 }}</td>
+    											{% if sub.third2 in first+second %}
+                                                    {% set color='#ffff66' %}
+                                                {% elif sub.third2 in out %}
                                                     {% set color='#ff4d4d' %}
                                                 {% else %}
                                                     {% set color='' %}
                                                 {% endif %}
                                                 <td colspan="2" bgcolor={{color}}>{{ sub.third2 }}</td>
-    											{% if sub.third3 in group_a%}
+    											{% if sub.third3 in first+second %}
                                                     {% set color='#ffff66' %}
-                                                {% elif sub.third3=='Romania' %}
+                                                {% elif sub.third3 in out %}
                                                     {% set color='#ff4d4d' %}
                                                 {% else %}
                                                     {% set color='' %}
                                                 {% endif %}
                                                 <td colspan="2" bgcolor={{color}}>{{ sub.third3 }}</td>
-    											<td colspan="2">{{ sub.third4 }}</td>
+    											{% if sub.third4 in first+second %}
+                                                    {% set color='#ffff66' %}
+                                                {% elif sub.third4 in out %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% else %}
+                                                    {% set color='' %}
+                                                {% endif %}
+                                                <td colspan="2" bgcolor={{color}}>{{ sub.third4 }}</td>
     										</tr>
     										<tr>
     											<th colspan="10">Quarter Finalists</th>
