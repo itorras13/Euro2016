@@ -591,9 +591,9 @@
     										</tr>
     										<tr>
     											<th>A</th>
-                                                {% set first=['France', 'Wales'] %}
-                                                {% set second=['Switzerland', 'England'] %}
-                                                {% set thirds=['Albania', 'Slovakia'] %}
+                                                {% set first=['France', 'Wales', 'Germany'] %}
+                                                {% set second=['Switzerland', 'England', 'Poland'] %}
+                                                {% set thirds=['Albania', 'Slovakia', 'Northern Ireland'] %}
                                                 {% set out=['Romania', 'Russia', 'Ukraine'] %}
     											{% if sub.a1 in first%}
                                                     {% set color='#00cc00' %}
@@ -639,8 +639,26 @@
     										</tr>
     										<tr>
     											<th>C</th>
-    											<td colspan="2">{{ sub.c1 }}</td>
-    											<td colspan="2">{{ sub.c2 }}</td>
+    											{% if sub.c1 in first%}
+                                                    {% set color='#00cc00' %}
+                                                {% elif sub.c1 in second %}
+                                                    {% set color='#ffff66' %}
+                                                {% elif sub.c1 in out %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% else %}
+                                                    {% set color='' %}
+                                                {% endif %}
+                                                <td colspan="2" bgcolor={{color}}>{{ sub.c1 }}</td>
+    											{% if sub.c2 in second%}
+                                                    {% set color='#00cc00' %}
+                                                {% elif sub.c2 in first %}
+                                                    {% set color='#ffff66' %}
+                                                {% elif sub.c2 in out %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% else %}
+                                                    {% set color='' %}
+                                                {% endif %}
+                                                <td colspan="2" bgcolor={{color}}>{{ sub.c2 }}</td>
     											<th>D</th>
     											<td colspan="2">{{ sub.d1 }}</td>
     											<td colspan="2">{{ sub.d2 }}</td>
