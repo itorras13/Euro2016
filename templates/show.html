@@ -783,18 +783,58 @@
     										</tr>
     										<tr>
     											<td></td>
-    											<td colspan="2">{{ sub.q1 }}</td>
-    											<td colspan="2">{{ sub.q2 }}</td>
-    											<td colspan="2">{{ sub.q3 }}</td>
-    											<td colspan="2">{{ sub.q4 }}</td>
+                                                {% if sub.q1 in out %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% else %}
+                                                    {% set color='' %}
+                                                {% endif %}
+    											<td colspan="2" bgcolor={{color}}>{{ sub.q1 }}</td>
+    											{% if sub.q2 in out %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% else %}
+                                                    {% set color='' %}
+                                                {% endif %}
+                                                <td colspan="2" bgcolor={{color}}>{{ sub.q2 }}</td>
+    											{% if sub.q3 in out %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% else %}
+                                                    {% set color='' %}
+                                                {% endif %}
+                                                <td colspan="2" bgcolor={{color}}>{{ sub.q3 }}</td>
+    											{% if sub.q4 in out %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% else %}
+                                                    {% set color='' %}
+                                                {% endif %}
+                                                <td colspan="2" bgcolor={{color}}>{{ sub.q4 }}</td>
     											<td></td>
     										</tr>
     										<tr>
     											<td></td>
-    											<td colspan="2">{{ sub.q5 }}</td>
-    											<td colspan="2">{{ sub.q6 }}</td>
-    											<td colspan="2">{{ sub.q7 }}</td>
-    											<td colspan="2">{{ sub.q8 }}</td>
+    											{% if sub.q5 in out %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% else %}
+                                                    {% set color='' %}
+                                                {% endif %}
+                                                <td colspan="2" bgcolor={{color}}>{{ sub.q5 }}</td>
+                                                {% if sub.q6 in out %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% else %}
+                                                    {% set color='' %}
+                                                {% endif %}
+                                                <td colspan="2" bgcolor={{color}}>{{ sub.q6 }}</td>
+                                                {% if sub.q7 in out %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% else %}
+                                                    {% set color='' %}
+                                                {% endif %}
+                                                <td colspan="2" bgcolor={{color}}>{{ sub.q7 }}</td>
+                                                {% if sub.q8 in out %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% else %}
+                                                    {% set color='' %}
+                                                {% endif %}
+                                                <td colspan="2" bgcolor={{color}}>{{ sub.q8 }}</td>
     											<td></td>
     										</tr>
     										<tr>
@@ -802,10 +842,30 @@
     										</tr>
     										<tr>
     											<td></td>
-    											<td colspan="2">{{ sub.semi1 }}</td>
-    											<td colspan="2">{{ sub.semi2 }}</td>
-    											<td colspan="2">{{ sub.semi3 }}</td>
-    											<td colspan="2">{{ sub.semi4 }}</td>
+    											{% if sub.semi1 in out %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% else %}
+                                                    {% set color='' %}
+                                                {% endif %}
+                                                <td colspan="2" bgcolor={{color}}>{{ sub.semi1 }}</td>
+    											{% if sub.semi2 in out %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% else %}
+                                                    {% set color='' %}
+                                                {% endif %}
+                                                <td colspan="2" bgcolor={{color}}>{{ sub.semi2 }}</td>
+    											{% if sub.semi3 in out %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% else %}
+                                                    {% set color='' %}
+                                                {% endif %}
+                                                <td colspan="2" bgcolor={{color}}>{{ sub.semi3 }}</td>
+    											{% if sub.semi4 in out %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% else %}
+                                                    {% set color='' %}
+                                                {% endif %}
+                                                <td colspan="2" bgcolor={{color}}>{{ sub.semi4 }}</td>
     											<td></td>
     										</tr>
     										<tr>
@@ -821,10 +881,30 @@
     										</tr>
     										<tr>
     											<td></td>
-    											<td colspan="2">{{ sub.fin1 }}</td>
-    											<td colspan="2">{{ sub.fin2 }}</td>
-    											<td colspan="2">{{ sub.champion }}</td>
-    											<td colspan="2">{{ sub.third_place }}</td>
+    											{% if sub.fin1 in out %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% else %}
+                                                    {% set color='' %}
+                                                {% endif %}
+                                                <td colspan="2" bgcolor={{color}}>{{ sub.fin1 }}</td>
+    											{% if sub.fin2 in out %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% else %}
+                                                    {% set color='' %}
+                                                {% endif %}
+                                                <td colspan="2" bgcolor={{color}}>{{ sub.fin2 }}</td>
+    											{% if sub.champion in out %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% else %}
+                                                    {% set color='' %}
+                                                {% endif %}
+                                                <td colspan="2" bgcolor={{color}}>{{ sub.champion }}</td>
+    											{% if sub.third_place in out %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% else %}
+                                                    {% set color='' %}
+                                                {% endif %}
+                                                <td colspan="2" bgcolor={{color}}>{{ sub.third_place }}</td>
     											<td></td>
     										</tr>
     										<tr>
