@@ -509,13 +509,27 @@
     										<tr>
     											<th>E5</th>
     											<td>Sweden</td>
-    											<td>{{ sub.e5h }}</td>
-    											<td>{{ sub.e5a }}</td>
+    											{% if sub.e5h==0 and sub.e5a==1 %}
+                                                    {% set color='#00cc00' %}
+                                                {% elif sub.e5h < sub.e5a %}
+                                                    {% set color='#ffff66' %}
+                                                {% else %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% endif %}
+                                                <td bgcolor={{color}}>(0)&nbsp;&nbsp;{{ sub.e5h }}</td>
+                                                <td bgcolor={{color}}>{{ sub.e5a }}&nbsp;&nbsp;(1)</td>
     											<td>Belgium</td>
     											<th>E6</th>
     											<td>Italy</td>
-    											<td>{{ sub.e6h }}</td>
-    											<td>{{ sub.e6a }}</td>
+    											{% if sub.e6h==0 and sub.e6a==1 %}
+                                                    {% set color='#00cc00' %}
+                                                {% elif sub.e6h < sub.e6a %}
+                                                    {% set color='#ffff66' %}
+                                                {% else %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% endif %}
+                                                <td bgcolor={{color}}>(0)&nbsp;&nbsp;{{ sub.e6h }}</td>
+                                                <td bgcolor={{color}}>{{ sub.e6a }}&nbsp;&nbsp;(1)</td>
     											<td>Republic of Ireland</td>
     										</tr>
     										<tr>
