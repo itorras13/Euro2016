@@ -576,13 +576,27 @@
     										<tr>
     											<th>F5</th>
     											<td>Hungary</td>
-    											<td>{{ sub.f5h }}</td>
-    											<td>{{ sub.f5a }}</td>
+    											{% if sub.f5h==3 and sub.f5a==3 %}
+                                                    {% set color='#00cc00' %}
+                                                {% elif sub.f5h == sub.f5a %}
+                                                    {% set color='#ffff66' %}
+                                                {% else %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% endif %}
+                                                <td bgcolor={{color}}>(3)&nbsp;&nbsp;{{ sub.f5h }}</td>
+                                                <td bgcolor={{color}}>{{ sub.f5a }}&nbsp;&nbsp;(3)</td>
     											<td>Portugal</td>
     											<th>F6</th>
     											<td>Iceland</td>
-    											<td>{{ sub.f6h }}</td>
-    											<td>{{ sub.f6a }}</td>
+    											{% if sub.f6h==2 and sub.f6a==1 %}
+                                                    {% set color='#00cc00' %}
+                                                {% elif sub.f6h > sub.f6a %}
+                                                    {% set color='#ffff66' %}
+                                                {% else %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% endif %}
+                                                <td bgcolor={{color}}>(2)&nbsp;&nbsp;{{ sub.f6h }}</td>
+                                                <td bgcolor={{color}}>{{ sub.f6a }}&nbsp;&nbsp;(1)</td>
     											<td>Austria</td>
     										</tr>
     										<tr>
