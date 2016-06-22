@@ -633,10 +633,10 @@
     										</tr>
     										<tr>
     											<th>A</th>
-                                                {% set first=['France', 'Wales', 'Germany', 'Croatia', 'Hungary'] %}
-                                                {% set second=['Switzerland', 'England', 'Poland', 'Spain', 'Iceland'] %}
-                                                {% set thirds=['Albania', 'Slovakia', 'Northern Ireland', 'Turkey', 'Portugal'] %}
-                                                {% set out=['Romania', 'Russia', 'Ukraine', 'Czech Republic', 'Austria'] %}
+                                                {% set first=['France', 'Wales', 'Germany', 'Croatia', 'Hungary', 'Italy'] %}
+                                                {% set second=['Switzerland', 'England', 'Poland', 'Spain', 'Iceland', 'Belgium'] %}
+                                                {% set thirds=['Albania', 'Slovakia', 'Northern Ireland', 'Turkey', 'Portugal', 'Republic of Ireland'] %}
+                                                {% set out=['Romania', 'Russia', 'Ukraine', 'Czech Republic', 'Austria', 'Sweden'] %}
     											{% if sub.a1 in first%}
                                                     {% set color='#00cc00' %}
                                                 {% elif sub.a1 in second %}
@@ -725,8 +725,26 @@
     										</tr>
     										<tr>
     											<th>E</th>
-    											<td colspan="2">{{ sub.e1 }}</td>
-    											<td colspan="2">{{ sub.e2 }}</td>
+    											{% if sub.e1 in first%}
+                                                    {% set color='#00cc00' %}
+                                                {% elif sub.e1 in second %}
+                                                    {% set color='#ffff66' %}
+                                                {% elif sub.e1 in out %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% else %}
+                                                    {% set color='' %}
+                                                {% endif %}
+                                                <td colspan="2" bgcolor={{color}}>{{ sub.e1 }}</td>
+                                                {% if sub.e2 in second%}
+                                                    {% set color='#00cc00' %}
+                                                {% elif sub.e2 in first %}
+                                                    {% set color='#ffff66' %}
+                                                {% elif sub.e2 in out %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% else %}
+                                                    {% set color='' %}
+                                                {% endif %}
+                                                <td colspan="2" bgcolor={{color}}>{{ sub.e2 }}</td>
     											<th>F</th>
     											{% if sub.f1 in first%}
                                                     {% set color='#00cc00' %}
