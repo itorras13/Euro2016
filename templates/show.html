@@ -778,6 +778,8 @@
                                                 {% endif %}
                                                 <td colspan="2" bgcolor={{color}}>{{ sub.third4 }}</td>
     										</tr>
+                                            {% set out=['Romania', 'Russia', 'Ukraine', 'Czech Republic', 'Austria', 'Sweden', 'Albania', 'Turkey', 'Switzerland'] %}
+                                            {% set quarters=['Poland'] %}
     										<tr>
     											<th colspan="10">Quarter Finalists</th>
     										</tr>
@@ -785,24 +787,32 @@
     											<td></td>
                                                 {% if sub.q1 in out %}
                                                     {% set color='#ff4d4d' %}
+                                                {% elif sub.q1 in quarters %}
+                                                    {% set color='#00cc00' %}
                                                 {% else %}
                                                     {% set color='' %}
                                                 {% endif %}
     											<td colspan="2" bgcolor={{color}}>{{ sub.q1 }}</td>
     											{% if sub.q2 in out %}
                                                     {% set color='#ff4d4d' %}
+                                                {% elif sub.q2 in quarters %}
+                                                    {% set color='#00cc00' %}
                                                 {% else %}
                                                     {% set color='' %}
                                                 {% endif %}
                                                 <td colspan="2" bgcolor={{color}}>{{ sub.q2 }}</td>
     											{% if sub.q3 in out %}
                                                     {% set color='#ff4d4d' %}
+                                                {% elif sub.q3 in quarters %}
+                                                    {% set color='#00cc00' %}
                                                 {% else %}
                                                     {% set color='' %}
                                                 {% endif %}
                                                 <td colspan="2" bgcolor={{color}}>{{ sub.q3 }}</td>
     											{% if sub.q4 in out %}
                                                     {% set color='#ff4d4d' %}
+                                                {% elif sub.q4 in quarters %}
+                                                    {% set color='#00cc00' %}
                                                 {% else %}
                                                     {% set color='' %}
                                                 {% endif %}
@@ -813,24 +823,32 @@
     											<td></td>
     											{% if sub.q5 in out %}
                                                     {% set color='#ff4d4d' %}
+                                                {% elif sub.q5 in quarters %}
+                                                    {% set color='#00cc00' %}
                                                 {% else %}
                                                     {% set color='' %}
                                                 {% endif %}
                                                 <td colspan="2" bgcolor={{color}}>{{ sub.q5 }}</td>
                                                 {% if sub.q6 in out %}
                                                     {% set color='#ff4d4d' %}
+                                                {% elif sub.q6 in quarters %}
+                                                    {% set color='#00cc00' %}
                                                 {% else %}
                                                     {% set color='' %}
                                                 {% endif %}
                                                 <td colspan="2" bgcolor={{color}}>{{ sub.q6 }}</td>
                                                 {% if sub.q7 in out %}
                                                     {% set color='#ff4d4d' %}
+                                                {% elif sub.q7 in quarters %}
+                                                    {% set color='#00cc00' %}
                                                 {% else %}
                                                     {% set color='' %}
                                                 {% endif %}
                                                 <td colspan="2" bgcolor={{color}}>{{ sub.q7 }}</td>
                                                 {% if sub.q8 in out %}
                                                     {% set color='#ff4d4d' %}
+                                                {% elif sub.q8 in quarters %}
+                                                    {% set color='#00cc00' %}
                                                 {% else %}
                                                     {% set color='' %}
                                                 {% endif %}
