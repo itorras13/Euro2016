@@ -120,7 +120,11 @@
                                             {% else %}
                                                 <td><a href="show/{{submission['id']}}">{{submission['first_name']}} {{submission['last_name']}} ({{submission['sub_num']}})</a></td>
                                             {% endif %}
-                                            <td>{{submission['champion']}}</td>
+                                            {% if False %}
+                                                <td><strike>{{submission['champion']}}</strike></td>
+                                            {% else %}
+                                                <td>{{submission['champion']}}</td>
+                                            {% endif %}
                                             <td>{{submission['points']}}</td>
                                             {% if submission['paid'] %}
                                                 <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
