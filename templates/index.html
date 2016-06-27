@@ -95,7 +95,7 @@
                         <h1>Standings</h1>
                         {% if submissions != [] %}
                             <p>Current Payouts: 1st: ${{submissions|count * 20 * 0.60}} 2nd: ${{submissions|count * 20 * 0.25}} 3rd: ${{submissions|count * 20 * 0.1}}</p>
-                            <h3>Last Update: Belgium 4-0 Hungary  </h3>
+                            <h3>Last Update: Italy 2-0 Spain  </h3>
                             <!-- Once sumbissions are closed you will be able to click on names to see the brackets and winners will be shown -->
                             <table class="table table-striped table-responsive">
                                 <thead>
@@ -120,7 +120,7 @@
                                             {% else %}
                                                 <td><a href="show/{{submission['id']}}">{{submission['first_name']}} {{submission['last_name']}} ({{submission['sub_num']}})</a></td>
                                             {% endif %}
-                                            {% if False %}
+                                            {% if submission['champion'] in ['Spain'] %}
                                                 <td><strike>{{submission['champion']}}</strike></td>
                                             {% else %}
                                                 <td>{{submission['champion']}}</td>
