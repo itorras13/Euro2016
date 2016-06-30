@@ -927,12 +927,7 @@
                                                     {% set color='' %}
                                                 {% endif %}
                                                 <td colspan="2" bgcolor={{color}}>{{ sub.champion }}</td>
-    											{% if sub.third_place in out %}
-                                                    {% set color='#ff4d4d' %}
-                                                {% else %}
-                                                    {% set color='' %}
-                                                {% endif %}
-                                                <td colspan="2" bgcolor={{color}}><strike>{{ sub.third_place }}</strike></td>
+                                                <td colspan="2"><strike>{{ sub.third_place }}</strike></td>
     											<td></td>
     										</tr>
     										<tr>
