@@ -855,6 +855,8 @@
                                                 <td colspan="2" bgcolor={{color}}>{{ sub.q8 }}</td>
     											<td></td>
     										</tr>
+                                            {% set out=['Romania', 'Russia', 'Ukraine', 'Czech Republic', 'Austria', 'Sweden', 'Albania', 'Turkey', 'Switzerland', 'Northern Ireland', 'Croatia', 'Republic of Ireland', 'Slovakia', 'Hungary', 'Spain', 'England', 'Poland'] %}
+                                            {% set semis = ['Portugal'] %}
     										<tr>
     											<th colspan="10">Semi Finalists</th>
     										</tr>
@@ -862,24 +864,32 @@
     											<td></td>
     											{% if sub.semi1 in out %}
                                                     {% set color='#ff4d4d' %}
+                                                {% elif sub.semi1 in semis %}
+                                                    {% set color='#00cc00' %}
                                                 {% else %}
                                                     {% set color='' %}
                                                 {% endif %}
                                                 <td colspan="2" bgcolor={{color}}>{{ sub.semi1 }}</td>
     											{% if sub.semi2 in out %}
                                                     {% set color='#ff4d4d' %}
+                                                {% elif sub.semi2 in semis %}
+                                                    {% set color='#00cc00' %}
                                                 {% else %}
                                                     {% set color='' %}
                                                 {% endif %}
                                                 <td colspan="2" bgcolor={{color}}>{{ sub.semi2 }}</td>
     											{% if sub.semi3 in out %}
                                                     {% set color='#ff4d4d' %}
+                                                {% elif sub.semi3 in semis %}
+                                                    {% set color='#00cc00' %}
                                                 {% else %}
                                                     {% set color='' %}
                                                 {% endif %}
                                                 <td colspan="2" bgcolor={{color}}>{{ sub.semi3 }}</td>
     											{% if sub.semi4 in out %}
                                                     {% set color='#ff4d4d' %}
+                                                {% elif sub.semi4 in semis %}
+                                                    {% set color='#00cc00' %}
                                                 {% else %}
                                                     {% set color='' %}
                                                 {% endif %}
