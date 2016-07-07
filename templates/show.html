@@ -907,16 +907,22 @@
     											<th colspan="2"><strike>3rd Place</strike></th>
     											<th></th>
     										</tr>
+                                            {% set out=['Romania', 'Russia', 'Ukraine', 'Czech Republic', 'Austria', 'Sweden', 'Albania', 'Turkey', 'Switzerland', 'Northern Ireland', 'Croatia', 'Republic of Ireland', 'Slovakia', 'Hungary', 'Spain', 'England', 'Poland', 'Belgium', 'Italy', 'Iceland', 'Wales'] %}
+                                            {% set fin = ['Portugal'] %}
     										<tr>
     											<td></td>
     											{% if sub.fin1 in out %}
                                                     {% set color='#ff4d4d' %}
+                                                {% elif sub.fin1 in fin %}
+                                                    {% set color='#00cc00' %}
                                                 {% else %}
                                                     {% set color='' %}
                                                 {% endif %}
                                                 <td colspan="2" bgcolor={{color}}>{{ sub.fin1 }}</td>
     											{% if sub.fin2 in out %}
                                                     {% set color='#ff4d4d' %}
+                                                {% elif sub.fin2 in fin %}
+                                                    {% set color='#00cc00' %}
                                                 {% else %}
                                                     {% set color='' %}
                                                 {% endif %}
