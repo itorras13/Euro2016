@@ -927,10 +927,10 @@
                                                     {% set color='' %}
                                                 {% endif %}
                                                 <td colspan="2" bgcolor={{color}}>{{ sub.fin2 }}</td>
-    											{% if sub.champion in out %}
+    											{% if sub.champion != 'Portugal' %}
                                                     {% set color='#ff4d4d' %}
                                                 {% else %}
-                                                    {% set color='' %}
+                                                    {% set color='#00cc00' %}
                                                 {% endif %}
                                                 <td colspan="2" bgcolor={{color}}>{{ sub.champion }}</td>
                                                 <td colspan="2"><strike>{{ sub.third_place }}</strike></td>
@@ -940,7 +940,12 @@
     											<th colspan="10">Top Scorer</th>
     										</tr>
     										<tr>
-    											<td colspan="10">{{ sub.top_scorer }}</td>
+                                                {% if sub.top_scorer != 'Antoine Griezmann' %}
+                                                    {% set color='#ff4d4d' %}
+                                                {% else %}
+                                                    {% set color='#00cc00' %}
+                                                {% endif %}
+    											<td colspan="10" bgcolor={{color}}>{{ sub.top_scorer }}</td>
     										</tr>
     									</tbody>
     								</table>
